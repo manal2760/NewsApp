@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".27"
-        app:layout_constraintStart_toStartof="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0" />
 
@@ -26,10 +26,10 @@
         android:layout_height="0dp"
         android:background="@drawable/vie_bg"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndof="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".78"
-        app:layout_constraintStart_toStartof="parent"
-        app:layout_constraintTop_toTop0f="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        >
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
@@ -38,7 +38,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".7"
-            app:layout_constraintStart_toStartof="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tab_layout"
             app:layout_constraintVertical_bias="0" />
 
@@ -46,11 +46,12 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintVertical_bias="0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0" />
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
