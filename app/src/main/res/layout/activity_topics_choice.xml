@@ -146,7 +146,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginStart="10dp"
             android:background="@drawable/pill_button"
-            android:text="Technology"
+            android:text="Technologie"
             android:textColor="#3e606f" />
     </LinearLayout>
 
@@ -159,7 +159,6 @@
         android:layout_marginStart="20dp"
         android:text="Suivant"
         android:textColor="#3e606f"
-
         android:background="@drawable/pill_button"/>
 
 </LinearLayout>
