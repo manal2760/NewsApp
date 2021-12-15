@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#221F1F"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <EditText
@@ -10,6 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Email"
+        android:textColorHint="#9faba3"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -29,6 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Password"
+        android:textColorHint="#9faba3"
         android:paddingLeft="20dp"
         android:paddingBottom="10dp"
         android:layout_marginTop="10dp"
@@ -49,9 +52,9 @@
         android:layout_height="46dp"
         android:background="@drawable/button_bg"
         android:text="Login"
+        android:textColor="#9faba3"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,16 +64,17 @@
 
     <TextView
         android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Forget Password"
-    app:layout_constraintVertical_bias="0"
-    app:layout_constraintHorizontal_bias="1"
-    android:layout_marginTop="5dp"
-    android:layout_marginRight="5dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="@+id/pass"
+        android:layout_height="wrap_content"
+        android:text="Mot de passe oublié?"
+        android:textColor="#df6c49"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias="1"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/pass"
         app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/pass" />
+        app:layout_constraintTop_toBottomOf="@+id/pass" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
     app:cardCornerRadius="4dp"
-    app:cardBackgroundColor="@color/grey"
+    app:cardBackgroundColor="#2c2c2a"
     android:layout_height="wrap_content">
 
     <RelativeLayout
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/idTVNewsHeading"
             android:layout_below="@id/idIVNews"
-            android:textColor="@color/yellow"
+            android:textColor="#cc3f18"
             android:text="New Heading"
             android:textStyle="bold"
             android:textSize="18sp"
