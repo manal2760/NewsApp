@@ -44,7 +44,7 @@
         android:layout_marginRight="10dp"
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintWidth_percent=".8"
