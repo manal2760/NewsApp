@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/onclick_pill_button.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/pill_button.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_topics_choice.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_topics_choice.xml" value="0.22" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/categories_rv_items.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/login_tab_fragment.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/news_rv_items.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/signup_tab_fragment.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/categories_rv_items.xml" value="0.22" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/news_rv_items.xml" value="0.1796875" />
