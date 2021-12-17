@@ -29,6 +29,13 @@
                 android:textAlignment="center"
                 android:textColor="#cc3f18"
                 android:textStyle="bold" />
+            <Button
+                android:id="@+id/logoutBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                >
+            </Button>
 
         </RelativeLayout>
 
