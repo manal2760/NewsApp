@@ -27,7 +27,7 @@
                 android:padding="4dp"
                 android:text="News App"
                 android:textAlignment="center"
-                android:textColor="@color/yellow"
+                android:textColor="#cc3f18"
                 android:textStyle="bold" />
 
         </RelativeLayout>

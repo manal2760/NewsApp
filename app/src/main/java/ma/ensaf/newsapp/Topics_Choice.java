@@ -25,6 +25,7 @@ public class Topics_Choice extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 science.setBackgroundResource(R.drawable.onclick_pill_button);
+                science.setTextColor(getResources().getColor(R.color.dark1));
 
             }
         });
