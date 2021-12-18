@@ -29,6 +29,13 @@
                 android:textAlignment="center"
                 android:textColor="#cc3f18"
                 android:textStyle="bold" />
+            <Button
+                android:id="@+id/logoutBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                >
+            </Button>
 
         </RelativeLayout>
 
@@ -61,19 +68,5 @@
         android:layout_centerInParent="true"
         android:visibility="invisible"
         />
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="650dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="30dp"
-        app:itemIconTint="@drawable/item_color"
-        app:itemTextColor="@drawable/item_color"
-        android:background="@drawable/menu_pill"
-        android:elevation="2dp"
-
-        app:menu="@menu/menu_items" />
 
 </RelativeLayout>
