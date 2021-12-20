@@ -12,6 +12,7 @@ import java.util.List;
 public class Topics_Choice extends AppCompatActivity {
     AppCompatButton science, education, business,divertissement,santé,politique,sports,technologie;
     List<AppCompatButton> categories = new ArrayList<>();
+    Boolean isClicked=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +30,19 @@ public class Topics_Choice extends AppCompatActivity {
         science.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                science.setBackgroundResource(R.drawable.onclick_pill_button);
-                science.setTextColor(getResources().getColor(R.color.dark1));
-                categories.add(science);
+                if (isClicked==false){
+                    click(science);
+                }
 
+                else{
+                    unclick(science);
+                    categories.remove(science);
+
+                }
+                isClicked=!isClicked;
             }
         });
+
         education.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,5 +76,13 @@ public class Topics_Choice extends AppCompatActivity {
             }
         });
 
+    }
+    public void click(AppCompatButton b){
+        b.setBackgroundResource(R.drawable.onclick_pill_button);
+        b.setTextColor(getResources().getColor(R.color.dark1));
+    }
+    public void unclick(AppCompatButton b){
+        b.setBackgroundResource(R.drawable.pill_button);
+        b.setTextColor(getResources().getColor(R.color.grey1));
     }
 }
