@@ -13,39 +13,56 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/idIVNews"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:id="@+id/idIVNews"
-            android:scaleType="centerCrop"
-            />
+            android:scaleType="centerCrop" />
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/idTVNewsHeading"
-            android:layout_below="@id/idIVNews"
-            android:textColor="#cc3f18"
-            android:text="New Heading"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:padding="3dp"
-            android:maxLines="2"
-            android:layout_margin="3dp"
-            />
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sub heading"
-            android:layout_below="@id/idTVNewsHeading"
-            android:textColor="@color/white"
-            android:maxLines="3"
-            android:layout_margin="3dp"
+            android:layout_below="@id/idIVNews"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:maxLines="2"
             android:padding="3dp"
-            android:id="@+id/idTVSubTitle"
-            />
+            android:text="New Heading"
+            android:textColor="#cc3f18"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/idTVSubTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idTVNewsHeading"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:maxLines="3"
+            android:padding="3dp"
+            android:text="Sub heading"
+            android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_below="@+id/idTVSubTitle"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_baseline_bookmark_border_24"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="@android:color/transparent"/>
 
 
     </RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>
