@@ -27,6 +27,7 @@ public class Topics_Choice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topics_choice);
+        reference= FirebaseDatabase.getInstance().getReference().child("categories");
         science = (AppCompatButton) findViewById(R.id.science);
         education = (AppCompatButton) findViewById(R.id.education);
         business=(AppCompatButton) findViewById(R.id.business);
@@ -37,24 +38,9 @@ public class Topics_Choice extends AppCompatActivity {
         technologie=(AppCompatButton) findViewById(R.id.tech);
         next= (AppCompatButton) findViewById(R.id.next_Btn);
 
-        reference= FirebaseDatabase.getInstance().getReference().child("category");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot)
-            {
-                if(snapshot.exists())
-                {
-                    i=(int) snapshot.getChildrenCount();
-                }
 
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error)
-            {
-                Toast.makeText(Topics_Choice.this,"Data not saved",Toast.LENGTH_SHORT).show();
-            }
-        });
+
 
         science.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,32 +84,45 @@ public class Topics_Choice extends AppCompatActivity {
             }
         });
 
-       next.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v)
-           {
-            if(science.isSelected())
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
             {
-                reference.child(String.valueOf(i+1)).setValue("Science");
+                String text1= "science";
+                String text2= "education";
+                String text3= "business";
+                String text4= "politics";
+                String text5= "sports";
+                Categories categories= new Categories();
+
+                if(science.isSelected())
+                {
+                    categories.setText(text1);
+                    reference.push().setValue(categories);
+                }
+                else if(education.isSelected())
+                {
+                    categories.setText(text2);
+                    reference.push().setValue(categories);
+                }
+                else if(business.isSelected())
+                {
+                    categories.setText(text3);
+                    reference.push().setValue(categories);
+                }
+                else if(politique.isSelected())
+                {
+                    categories.setText(text4);
+                    reference.push().setValue(categories);
+                }
+                else if(sports.isSelected())
+                {
+                    categories.setText(text5);
+                    reference.push().setValue(categories);
+                }
             }
-            else if(education.isSelected())
-            {
-                reference.child(String.valueOf(i+1)).setValue("Education");
-            }
-            else if(business.isSelected())
-            {
-                reference.child(String.valueOf(i+1)).setValue("Business");
-            }
-            else if(politique.isSelected())
-            {
-                reference.child(String.valueOf(i+1)).setValue("Politique");
-            }
-            else if(sports.isSelected())
-            {
-                reference.child(String.valueOf(i+1)).setValue("Sports");
-            }
-           }
-       });
+        });
+
 
     }
 }
