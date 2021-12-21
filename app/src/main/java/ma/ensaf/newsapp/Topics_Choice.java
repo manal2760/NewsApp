@@ -1,33 +1,23 @@
 package ma.ensaf.newsapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Topics_Choice extends AppCompatActivity {
-    AppCompatButton science, education, business,divertissement,santé,politique,sports,technologie,next;
-    //List<AppCompatButton> categories = new ArrayList<>();
-    DatabaseReference reference;
-    int i=0;
+    AppCompatButton science, education, business,divertissement,santé,politique,sports,technologie;
+    List<AppCompatButton> categories = new ArrayList<>();
+    Boolean isClicked=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topics_choice);
-        reference= FirebaseDatabase.getInstance().getReference().child("categories");
         science = (AppCompatButton) findViewById(R.id.science);
         education = (AppCompatButton) findViewById(R.id.education);
         business=(AppCompatButton) findViewById(R.id.business);
@@ -36,21 +26,23 @@ public class Topics_Choice extends AppCompatActivity {
         politique=(AppCompatButton) findViewById(R.id.politique);
         sports=(AppCompatButton) findViewById(R.id.sport);
         technologie=(AppCompatButton) findViewById(R.id.tech);
-        next= (AppCompatButton) findViewById(R.id.next_Btn);
-
-
-
-
 
         science.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                science.setBackgroundResource(R.drawable.onclick_pill_button);
-                science.setTextColor(getResources().getColor(R.color.dark1));
-                //categories.add(science);
+                if (isClicked==false){
+                    click(science);
+                }
 
+                else{
+                    unclick(science);
+                    categories.remove(science);
+
+                }
+                isClicked=!isClicked;
             }
         });
+
         education.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,45 +76,13 @@ public class Topics_Choice extends AppCompatActivity {
             }
         });
 
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                String text1= "science";
-                String text2= "education";
-                String text3= "business";
-                String text4= "politics";
-                String text5= "sports";
-                Categories categories= new Categories();
-
-                if(science.isSelected())
-                {
-                    categories.setText(text1);
-                    reference.push().setValue(categories);
-                }
-                else if(education.isSelected())
-                {
-                    categories.setText(text2);
-                    reference.push().setValue(categories);
-                }
-                else if(business.isSelected())
-                {
-                    categories.setText(text3);
-                    reference.push().setValue(categories);
-                }
-                else if(politique.isSelected())
-                {
-                    categories.setText(text4);
-                    reference.push().setValue(categories);
-                }
-                else if(sports.isSelected())
-                {
-                    categories.setText(text5);
-                    reference.push().setValue(categories);
-                }
-            }
-        });
-
-
+    }
+    public void click(AppCompatButton b){
+        b.setBackgroundResource(R.drawable.onclick_pill_button);
+        b.setTextColor(getResources().getColor(R.color.dark1));
+    }
+    public void unclick(AppCompatButton b){
+        b.setBackgroundResource(R.drawable.pill_button);
+        b.setTextColor(getResources().getColor(R.color.grey1));
     }
 }

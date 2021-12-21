@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
       //912a86cdf5b04b28a8b30878886c422b
       FirebaseAuth mAuth;
       Button logout;
-    BottomNavigationView bottomBar;
+      BottomNavigationView bottomBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
