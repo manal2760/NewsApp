@@ -29,13 +29,12 @@
                 android:textAlignment="center"
                 android:textColor="#cc3f18"
                 android:textStyle="bold" />
+
             <Button
                 android:id="@+id/logoutBTN"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Logout"
-                >
-            </Button>
+                android:text="Logout"></Button>
 
         </RelativeLayout>
 
@@ -71,12 +70,12 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomBar"
-        android:layout_width="362dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="95dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="650dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/menu_pill"
         android:elevation="2dp"
         app:itemIconTint="@drawable/item_color"
