@@ -70,10 +70,8 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
                         break;
                     case R.id.settings:
                         Toast.makeText(MainActivity.this,"settings", Toast.LENGTH_LONG).show();
-                        //  Intent intent1 = new Intent(MainActivity.this, home.class);
-                        //  startActivity(intent1);
-
-
+                         Intent intent1 = new Intent(MainActivity.this, SettingsActivity.class);
+                          startActivity(intent1);
                         break;
 
 
@@ -86,14 +84,7 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
         });
 
         mAuth= FirebaseAuth.getInstance();
-        logout= (Button) findViewById(R.id.logoutBTN);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAuth.signOut();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            }
-        });
+
     }
 
     @Override
