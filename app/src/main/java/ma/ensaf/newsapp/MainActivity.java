@@ -1,6 +1,7 @@
 package ma.ensaf.newsapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -39,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
       private ArrayList<CategoryRVModal> categoryRVModalArrayList;
       private categoryRVAdapter categoryRVAdapter;
       private NewsRVAdapter newsRVAdapter;
+      DatabaseReference ref;
+
+      ArrayList<String> chosenCateg = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
         getCategories();
         getNews("All");
         newsRVAdapter.notifyDataSetChanged();
+
+
 
         bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);
         bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -105,6 +116,34 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
 
     private void getCategories()
     {
+        ref= FirebaseDatabase.getInstance().getReference().child("categories");
+        ref.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            String value = snapshot.getValue(String.class);
+            chosenCateg.add(value);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         categoryRVModalArrayList.add(new CategoryRVModal("All","https://media.istockphoto.com/photos/abstract-digital-news-concept-picture-id1290904409?b=1&k=20&m=1290904409&s=170667a&w=0&h=6khncht98kwYG-l7bdeWfBNs_GGcG1pDqzLb6ZXhh7I="));
         categoryRVModalArrayList.add(new CategoryRVModal("Technology","https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"));
         categoryRVModalArrayList.add(new CategoryRVModal("Science","https://media.istockphoto.com/photos/vaccine-in-laboratory-flu-shot-and-covid19-vaccination-picture-id1289345741?b=1&k=20&m=1289345741&s=170667a&w=0&h=oG8iaDNP4rOLSgXWfeSziU3Vyu6KJS9Hn2ORohzSsRg="));
@@ -113,7 +152,6 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
         categoryRVModalArrayList.add(new CategoryRVModal("Business","https://media.istockphoto.com/photos/crisis-in-news-picture-id147036034?b=1&k=20&m=147036034&s=170667a&w=0&h=AwPgqLUXvbBfH_WI_rzpVc1VNfaFCPJmvDrgourmMbE="));
         categoryRVModalArrayList.add(new CategoryRVModal("Entertainment","https://media.istockphoto.com/photos/media-concept-smart-tv-picture-id540834826?b=1&k=20&m=540834826&s=170667a&w=0&h=1RMIxPcdb_Z9gwzG6yMxIMbaN9gMyJWdjUE9-CQ8Ooo="));
         categoryRVModalArrayList.add(new CategoryRVModal("Health","https://media.istockphoto.com/photos/magazines-and-stethoscope-picture-id1296480132?b=1&k=20&m=1296480132&s=170667a&w=0&h=RXh-mJO4b4LiuKMqvew_l3qUA07JsM4UOOA6Ty7x9RU="));
-
         categoryRVAdapter.notifyDataSetChanged();
     }
 
