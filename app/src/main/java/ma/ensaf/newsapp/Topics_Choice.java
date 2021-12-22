@@ -3,8 +3,10 @@ package ma.ensaf.newsapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -14,15 +16,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Topics_Choice extends AppCompatActivity {
-    AppCompatButton science, education, business,divertissement,santé,politique,sports,technologie;
+    AppCompatButton science, education, business,divertissement,santé,politique,sports,technologie,next;
     //List<AppCompatButton> categories = new ArrayList<>();
     DatabaseReference reference;
     FirebaseAuth mAuth;
     Categories categories= new Categories();
+    Boolean isClicked=false;
     String text1="science";
     String text2="education";
     String text3="business";
-    String text4="politique";
+    String text4="politics";
     String text5="sports";
 
 
@@ -31,6 +34,7 @@ public class Topics_Choice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topics_choice);
+
         reference= FirebaseDatabase.getInstance().getReference().child("categories");
         science = (AppCompatButton) findViewById(R.id.science);
         education = (AppCompatButton) findViewById(R.id.education);
@@ -40,103 +44,115 @@ public class Topics_Choice extends AppCompatActivity {
         politique=(AppCompatButton) findViewById(R.id.politique);
         sports=(AppCompatButton) findViewById(R.id.sport);
         technologie=(AppCompatButton) findViewById(R.id.tech);
+        next= (AppCompatButton) findViewById(R.id.next_Btn);
 
         science.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean isClicked1=false;
 
-                if (isClicked1==false){
+
+                if (isClicked==false){
                     click(science);
                     categories.setText(text1);
                     reference.push().setValue(categories);
+
                 }
 
                 else{
                     unclick(science);
-                    reference.child(text1).removeValue();
+                    reference.removeValue();
+
 
                 }
-                isClicked1=!isClicked1;
+                isClicked=!isClicked;
             }
         });
 
         education.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean isClicked2=false;
-                if (isClicked2==false){
-                    click(science);
+                //if (isClicked==false){
+                    click(education);
                     categories.setText(text2);
                     reference.push().setValue(categories);
-                }
+               // }
 
-                else{
-                    unclick(science);
-                    reference.child(text2).removeValue();
+                //else{
+                   // unclick(education);
+                    //reference.removeValue();
 
-                }
-                isClicked2=!isClicked2;
+               // }
+               // isClicked=!isClicked;
 
             }
         });
         business.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean isClicked3=false;
-                if (isClicked3==false){
-                    click(science);
+
+                //if (isClicked==false){
+                    click(business);
                     categories.setText(text3);
                     reference.push().setValue(categories);
-                }
+                //}
 
-                else{
-                    unclick(science);
-                    reference.child(text3).removeValue();
+                //else{
+                    //unclick(business);
+                    //reference.removeValue();
 
-                }
-                isClicked3=!isClicked3;
+              //  }
+               // isClicked=!isClicked;
 
             }
         });
         politique.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean isClicked4=false;
-                if (isClicked4==false){
-                    click(science);
+               // if (isClicked==false){
+                    click(politique);
                     categories.setText(text4);
                     reference.push().setValue(categories);
-                }
+               // }
 
-                else{
-                    unclick(science);
-                    reference.child(text4).removeValue();
+               // else{
+                  //  unclick(politique);
+                   // reference.removeValue();
 
-                }
-                isClicked4=!isClicked4;
+              //  }
+              //  isClicked=!isClicked;
 
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Topics_Choice.this,"signed up successfully",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Topics_Choice.this, MainActivity.class);
+                intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         });
         sports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean isClicked5=false;
-                if (isClicked5==false){
-                    click(science);
+                //if (isClicked==false){
+                    click(sports);
                     categories.setText(text5);
                     reference.push().setValue(categories);
-                }
+               // }
 
-                else{
-                    unclick(science);
-                    reference.child(text5).removeValue();
+                //else{
+                  //  unclick(sports);
+                    //reference.removeValue();
 
-                }
-                isClicked5=!isClicked5;
+                //}
+                //isClicked=!isClicked;
 
             }
         });
+
+
 
     }
     public void click(AppCompatButton b){
