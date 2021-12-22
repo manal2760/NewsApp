@@ -4,16 +4,31 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/button_bg.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/horizontal_line.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_bookmark_border_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_keyboard_arrow_left_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_library_books_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_question_answer_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_stars_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/item_color.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/menu_pill.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/onclick_pill_button.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/pill_button.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/settings_bg.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_notifications.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_settings.xml" value="0.25" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_topics_choice.xml" value="0.22" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/categories_rv_items.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/login_tab_fragment.xml" value="0.33" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/news_rv_items.xml" value="0.25" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/signup_tab_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/menu/menu_items.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/button_bg.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/edit_text_bg.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/vie_bg.xml" value="0.19583333333333333" />
