@@ -23,12 +23,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class signUpTabFragment extends Fragment {
 AppCompatButton signUp;
 FirebaseAuth mAuth;
 EditText mail, password;
-DatabaseReference ref;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.signup_tab_fragment, container, false);
@@ -69,13 +70,7 @@ DatabaseReference ref;
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful())
                     {
-                        ref=FirebaseDatabase.getInstance().getReference("users");
-                        String UserID =  FirebaseAuth.getInstance().getCurrentUser().getUid();
-                        Map<String, Object> map = new HashMap<>();
 
-                        map.put("email", mail);
-                        map.put("password", password);
-                        ref.child(UserID).setValue(map);
 
                         Toast.makeText(getActivity(),"user created successfully",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getActivity(), Topics_Choice.class);
