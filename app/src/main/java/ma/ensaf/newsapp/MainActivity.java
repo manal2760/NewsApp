@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
 
     private void getCategories()
     {
-        ref= FirebaseDatabase.getInstance().getReference().child("categories");
+        ref= FirebaseDatabase.getInstance().getReference().child("text");
         ref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
