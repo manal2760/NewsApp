@@ -18,11 +18,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class signUpTabFragment extends Fragment {
 AppCompatButton signUp;
 FirebaseAuth mAuth;
 EditText mail, password;
+DatabaseReference ref;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.signup_tab_fragment, container, false);
@@ -63,6 +69,13 @@ EditText mail, password;
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful())
                     {
+                        String UserID =  FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        Map<String, Object> map = new HashMap<>();
+
+                        map.put("email", mail);
+                        map.put("password", password);
+                        ref.child("users").child(UserID ).setValue(map);
+
                         Toast.makeText(getActivity(),"user crated successfully",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getActivity(), Topics_Choice.class);
                         startActivity(intent);
