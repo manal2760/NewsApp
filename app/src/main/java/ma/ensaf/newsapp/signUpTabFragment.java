@@ -74,7 +74,7 @@ DatabaseReference ref;
 
                         map.put("email", mail);
                         map.put("password", password);
-                        ref.child("users").child(UserID ).setValue(map);
+                        ref.child("users").child(UserID).setValue(map);
 
                         Toast.makeText(getActivity(),"user crated successfully",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getActivity(), Topics_Choice.class);
