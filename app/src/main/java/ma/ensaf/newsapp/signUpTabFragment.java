@@ -69,14 +69,15 @@ DatabaseReference ref;
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful())
                     {
+                        ref=FirebaseDatabase.getInstance().getReference("users");
                         String UserID =  FirebaseAuth.getInstance().getCurrentUser().getUid();
                         Map<String, Object> map = new HashMap<>();
 
                         map.put("email", mail);
                         map.put("password", password);
-                        ref.child("users").child(UserID ).setValue(map);
+                        ref.child(UserID).setValue(map);
 
-                        Toast.makeText(getActivity(),"user crated successfully",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"user created successfully",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getActivity(), Topics_Choice.class);
                         startActivity(intent);
 
