@@ -13,7 +13,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public class Topics_Choice extends AppCompatActivity {
     AppCompatButton science, education, business,divertissement,santé,politique,sports,technologie,next;
@@ -53,6 +56,15 @@ public class Topics_Choice extends AppCompatActivity {
 
                 if (isClicked==false){
                     click(science);
+                    String UserID =  Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+                    Map<String, Object> map = new HashMap<>();
+                    FirebaseDatabase.getInstance().getReference().child("users").setValue("test");
+
+                    map.put("email", "mail");
+                    map.put("password", "password");
+                    FirebaseDatabase.getInstance().getReference().child("users").child(UserID).setValue(map);
+                    categories.setText(text2);
+                    reference.push().setValue(categories);
                     categories.setText(text1);
                     reference.push().setValue(categories);
 
@@ -73,8 +85,8 @@ public class Topics_Choice extends AppCompatActivity {
             public void onClick(View view) {
                 //if (isClicked==false){
                     click(education);
-                    categories.setText(text2);
-                    reference.push().setValue(categories);
+
+
                // }
 
                 //else{
