@@ -22,7 +22,7 @@
             android:name=".notifications"
             android:exported="false" />
         <activity
-            android:name=".bookmark"
+            android:name=".bookmarkActivity"
             android:exported="false" />
         <activity
             android:name=".Topics_Choice"

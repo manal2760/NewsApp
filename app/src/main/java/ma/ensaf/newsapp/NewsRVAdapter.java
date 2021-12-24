@@ -13,6 +13,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -58,6 +62,13 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
             @Override
             public void onClick(View view) {
                 Toast.makeText(context,articles.getTitle(),Toast.LENGTH_SHORT).show();
+                FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
+                String userId= currentUser.getUid();
+                holder.reference= FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("favoris");
+                favoris fav = new  favoris();
+                fav.setTitle(articles.getTitle());
+                fav.setSubtitle(articles.getDescription());
+                holder.reference.push().setValue(fav);
             }
         });
 
@@ -73,6 +84,10 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
         private TextView titleTV,subtitleTV;
         private ImageView newsIV;
         private ImageButton bookmarkbutton;
+
+        DatabaseReference reference;
+        FirebaseAuth mAuth;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -80,6 +95,7 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
             subtitleTV=itemView.findViewById(R.id.idTVSubTitle);
             newsIV=itemView.findViewById(R.id.idIVNews);
             bookmarkbutton=itemView.findViewById(R.id.bookmarkButton);
+
         }
     }
 }
