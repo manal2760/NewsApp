@@ -29,7 +29,7 @@ public class signUpTabFragment extends Fragment {
 AppCompatButton signUp;
 FirebaseAuth mAuth;
 EditText mail, password;
-
+DatabaseReference ref=FirebaseDatabase.getInstance().getReference().child("users");
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.signup_tab_fragment, container, false);
@@ -71,6 +71,13 @@ EditText mail, password;
                     if(task.isSuccessful())
                     {
 
+                        String UserID =  Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+                        Map<String, Object> map = new HashMap<>();
+                        ref.setValue("test");
+
+                        map.put("email", mail);
+                        map.put("password", password);
+                        ref.child(UserID).setValue(map);
 
                         Toast.makeText(getActivity(),"user created successfully",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getActivity(), Topics_Choice.class);
