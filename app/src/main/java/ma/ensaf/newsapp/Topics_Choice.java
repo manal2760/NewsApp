@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -38,7 +39,9 @@ public class Topics_Choice extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topics_choice);
 
-        reference= FirebaseDatabase.getInstance().getReference().child("categories");
+        FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
+        String userId= currentUser.getUid();
+        reference= FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("categories");
         science = (AppCompatButton) findViewById(R.id.science);
         education = (AppCompatButton) findViewById(R.id.education);
         business=(AppCompatButton) findViewById(R.id.business);
@@ -56,27 +59,18 @@ public class Topics_Choice extends AppCompatActivity {
 
                 if (isClicked==false){
                     click(science);
-                    String UserID =  Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-                    Map<String, Object> map = new HashMap<>();
-                    FirebaseDatabase.getInstance().getReference().child("users").setValue("test");
-
-                    map.put("email", "mail");
-                    map.put("password", "password");
-                    FirebaseDatabase.getInstance().getReference().child("users").child(UserID).setValue(map);
-                    categories.setText(text2);
-                    reference.push().setValue(categories);
                     categories.setText(text1);
                     reference.push().setValue(categories);
 
                 }
 
-                else{
-                    unclick(science);
-                    reference.removeValue();
+                //else{
+                    //unclick(science);
+                    //reference.removeValue();
 
 
-                }
-                isClicked=!isClicked;
+               // }
+                //isClicked=!isClicked;
             }
         });
 
@@ -85,9 +79,11 @@ public class Topics_Choice extends AppCompatActivity {
             public void onClick(View view) {
                 //if (isClicked==false){
                     click(education);
+                categories.setText(text2);
+                reference.push().setValue(categories);
 
 
-               // }
+                // }
 
                 //else{
                    // unclick(education);
