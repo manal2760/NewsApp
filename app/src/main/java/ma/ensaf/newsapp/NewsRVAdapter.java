@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +21,7 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
 {
     private ArrayList<Articles> articlesArrayList;
     private Context context;
+
 
     public NewsRVAdapter(ArrayList<Articles> articlesArrayList, Context context) {
         this.articlesArrayList = articlesArrayList;
@@ -51,6 +54,12 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
 
             }
         });
+        holder.bookmarkbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,articles.getTitle(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -63,12 +72,14 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
     {
         private TextView titleTV,subtitleTV;
         private ImageView newsIV;
+        private ImageButton bookmarkbutton;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             titleTV=itemView.findViewById(R.id.idTVNewsHeading);
             subtitleTV=itemView.findViewById(R.id.idTVSubTitle);
             newsIV=itemView.findViewById(R.id.idIVNews);
+            bookmarkbutton=itemView.findViewById(R.id.bookmarkButton);
         }
     }
 }
