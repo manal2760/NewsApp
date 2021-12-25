@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -68,6 +69,7 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
             @Override
             public void onClick(View view) {
                 Toast.makeText(context,"article saved",Toast.LENGTH_SHORT).show();
+                holder.bookmarkbutton.setBackgroundResource(R.drawable.ic_baseline_bookmark_24);
                 FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
                 String userId= currentUser.getUid();
                 holder.reference= FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("favoris");
@@ -107,5 +109,7 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
 
         }
     }
+
+
 
 }
