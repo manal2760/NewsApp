@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/button_bg.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.2111111111111111" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_bookmark_border_24.xml" value="0.2111111111111111" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/menu_pill.xml" value="0.2111111111111111" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/onclick_pill_button.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/pill_button.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/settings_bg.xml" value="0.2203125" />
@@ -11,7 +14,7 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_news_details.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_settings.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_settings.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_topics_choice.xml" value="0.22" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/categories_rv_items.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/login_tab_fragment.xml" value="0.33" />
