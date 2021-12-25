@@ -49,7 +49,6 @@ public class bookmarkActivity extends AppCompatActivity {
                         //Toast.makeText(MainActivity.this,"home", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(bookmarkActivity.this, bookmarkActivity.class);
                         startActivity(intent);
-                        item.isCheckable();
 
                         break;
                     case R.id.settings:

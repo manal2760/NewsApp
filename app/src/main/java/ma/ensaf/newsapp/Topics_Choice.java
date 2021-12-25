@@ -50,7 +50,7 @@ public class Topics_Choice extends AppCompatActivity {
         politique=(AppCompatButton) findViewById(R.id.politique);
         sports=(AppCompatButton) findViewById(R.id.sport);
         technologie=(AppCompatButton) findViewById(R.id.tech);
-        next= (AppCompatButton) findViewById(R.id.Category_next_Btn);
+        next= (AppCompatButton) findViewById(R.id.next_Btn);
 
         science.setOnClickListener(new View.OnClickListener() {
             @Override
