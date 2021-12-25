@@ -73,16 +73,25 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){
-                    case R.id.home:
-                        Toast.makeText(MainActivity.this,"home", Toast.LENGTH_LONG).show();
-                        //  Intent intent = new Intent(MainActivity.this, home.class);
-                        //  startActivity(intent);
+                    case R.id.bookmark:
+                        //Toast.makeText(MainActivity.this,"home", Toast.LENGTH_LONG).show();
+                         Intent intent = new Intent(MainActivity.this, bookmarkActivity.class);
+                         startActivity(intent);
+
 
                         break;
+
                     case R.id.settings:
-                        Toast.makeText(MainActivity.this,"settings", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(MainActivity.this,"settings", Toast.LENGTH_LONG).show();
                          Intent intent1 = new Intent(MainActivity.this, SettingsActivity.class);
                           startActivity(intent1);
+                        break;
+
+                    case R.id.home:
+                        //Toast.makeText(MainActivity.this,"settings", Toast.LENGTH_LONG).show();
+                        Intent intent2 = new Intent(MainActivity.this, MainActivity.class);
+                        startActivity(intent2);
+                        item.isCheckable();
                         break;
 
 
