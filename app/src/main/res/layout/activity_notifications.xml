@@ -51,7 +51,6 @@
         android:textColor="#cc3f18"
         android:layout_marginTop="10dp"
         android:text="Ignorer cette étape"/>
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_Btn"
         android:layout_marginTop="20dp"

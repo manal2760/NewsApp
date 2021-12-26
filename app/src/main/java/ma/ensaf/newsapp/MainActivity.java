@@ -9,9 +9,12 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -48,6 +51,12 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
       DatabaseReference ref;
 
       ArrayList<String> chosenCateg = new ArrayList<>();
+////////search
+    private ArrayList<Articles> mExampleList;
+
+    private RecyclerView mRecyclerView;
+    private NewsRVAdapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +113,26 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
         });
 
         mAuth= FirebaseAuth.getInstance();
+        ///////////////////search
+     /*   buildRecyclerView();
+
+        EditText editText = findViewById(R.id.edittextsearch);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });*/
 
     }
 
@@ -216,4 +245,24 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
         getNews(category);
 
     }
+   /* private void filter(String text) {
+        ArrayList<Articles> filteredList = new ArrayList<>();
+
+        for (Articles item : mExampleList) {
+            if (item.getContent().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+
+        mAdapter.filterList(filteredList);
+    }
+    private void buildRecyclerView() {
+        mRecyclerView = findViewById(R.id.idRVNews);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this);
+        mAdapter = new NewsRVAdapter(articlesArrayList,this);
+
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
+    }*/
 }

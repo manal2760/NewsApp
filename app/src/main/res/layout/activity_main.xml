@@ -32,20 +32,28 @@
                 android:textSize="20sp"
                 />
 
+            <EditText
+                android:id="@+id/edittextsearch"
+                android:text="search"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"/>
+
 
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRVCategories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/idRVCategories"
-        android:orientation="horizontal"
-        tools:listitem="@layout/categories_rv_items"
         android:layout_below="@id/idToolbar"
+        android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        tools:listitem="@layout/categories_rv_items" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVNews"

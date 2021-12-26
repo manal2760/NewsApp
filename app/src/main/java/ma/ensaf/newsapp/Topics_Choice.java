@@ -10,8 +10,11 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,8 +56,25 @@ public class Topics_Choice extends AppCompatActivity {
         next= (AppCompatButton) findViewById(R.id.Category_next_Btn);
 
         science.setOnClickListener(new View.OnClickListener() {
+            int check = 1;
             @Override
             public void onClick(View view) {
+              /* if(check == 1){
+                    unclick(science);
+                   Query queryRef = reference.orderByChild("text").equalTo(text1);
+                   queryRef.addChildEventListener(new ChildEventListener() {
+                       @Override
+                       public void onChildAdded(DataSnapshot snapshot, String previousChild) {
+                           snapshot.getRef().setValue(null);
+                       }
+                   });
+                    check = 0;
+                }else{
+                    click(science);
+                    categories.setText(text1);
+                    reference.push().setValue(categories);
+                    check = 1;
+                }*/
 
 
                 if (isClicked==false){

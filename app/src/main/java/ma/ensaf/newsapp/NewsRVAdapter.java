@@ -66,20 +66,28 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
             }
         });
         holder.bookmarkbutton.setOnClickListener(new View.OnClickListener() {
+           // int check = 1;
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"article saved",Toast.LENGTH_SHORT).show();
-                holder.bookmarkbutton.setBackgroundResource(R.drawable.ic_baseline_bookmark_24);
-                FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
-                String userId= currentUser.getUid();
-                holder.reference= FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("favoris");
-                favoris fav = new  favoris();
-                fav.setTitle(articles.getTitle());
-                fav.setSubtitle(articles.getDescription());
-                fav.setImageUrl(articles.getUrlToImage());
-                fav.setUrl(articles.getUrl());
-                fav.setContent(articles.getContent());
-                holder.reference.push().setValue(fav);
+            //    if (check == 1) {
+                    Toast.makeText(context, "article saved", Toast.LENGTH_SHORT).show();
+                    holder.bookmarkbutton.setBackgroundResource(R.drawable.ic_baseline_bookmark_24);
+                    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                    String userId = currentUser.getUid();
+                    holder.reference = FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("favoris");
+                    favoris fav = new favoris();
+                    fav.setTitle(articles.getTitle());
+                    fav.setSubtitle(articles.getDescription());
+                    fav.setImageUrl(articles.getUrlToImage());
+                    fav.setUrl(articles.getUrl());
+                    fav.setContent(articles.getContent());
+                    holder.reference.push().setValue(fav);
+                  //  check=0;
+              //  }
+               /* else{
+                    holder.bookmarkbutton.setBackgroundResource(R.drawable.ic_baseline_bookmark_border_24);
+                    check=1;
+                }*/
             }
         });
 
@@ -108,6 +116,10 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
             bookmarkbutton=itemView.findViewById(R.id.bookmarkButton);
 
         }
+    }
+    public void filterList(ArrayList<Articles> filteredList) {
+        articlesArrayList = filteredList;
+        notifyDataSetChanged();
     }
 
 
