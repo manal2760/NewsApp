@@ -37,9 +37,9 @@ public class loginTabFragment extends Fragment
             @Override
             public void onClick(View view) {
 
-                //loginUser();
-                Intent intent = new Intent(getActivity(), SettingsActivity.class);
-                startActivity(intent);
+                loginUser();
+               // Intent intent = new Intent(getActivity(), SettingsActivity.class);
+                //startActivity(intent);
             }
         });
         return root;
