@@ -133,11 +133,12 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:layout_toEndOf="@+id/icon1"
-                        android:text="chi 7aja"
+                        android:text="Mode foncé"
                         android:textColor="#9faba3"
                         android:textStyle="bold" />
 
                     <androidx.appcompat.widget.SwitchCompat
+                        android:checked="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"

@@ -34,11 +34,14 @@
 
             <EditText
                 android:id="@+id/edittextsearch"
-                android:text="search"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"/>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="search"
+                android:textColor="@color/white" />
 
 
         </RelativeLayout>
@@ -83,6 +86,7 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/menu_pill"
         android:elevation="2dp"
+        app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@drawable/item_color"
         app:itemTextColor="@drawable/item_color"
 

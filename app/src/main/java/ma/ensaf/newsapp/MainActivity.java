@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
 
         mAuth= FirebaseAuth.getInstance();
         ///////////////////search
-     /*   buildRecyclerView();
+    /*    buildRecyclerView();
 
         EditText editText = findViewById(R.id.edittextsearch);
         editText.addTextChangedListener(new TextWatcher() {
