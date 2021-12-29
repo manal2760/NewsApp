@@ -1,5 +1,7 @@
 package ma.ensaf.newsapp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -10,8 +12,12 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +40,7 @@ public class Topics_Choice extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,45 +60,88 @@ public class Topics_Choice extends AppCompatActivity {
         next= (AppCompatButton) findViewById(R.id.next_Btn);
 
         science.setOnClickListener(new View.OnClickListener() {
+            int check=0;
             @Override
             public void onClick(View view) {
+               if(check == 1){
+                    unclick(science);
+                   Query queryRef = reference.orderByChild("text").equalTo(text1);
+                   queryRef.addChildEventListener(new ChildEventListener() {
+                       @Override
+                       public void onChildAdded(DataSnapshot snapshot, String previousChild) {
+                           snapshot.getRef().setValue(null);
+                       }
 
+                       @Override
+                       public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                if (isClicked==false){
+                       }
+
+                       @Override
+                       public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                       }
+
+                       @Override
+                       public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                       }
+
+                       @Override
+                       public void onCancelled(@NonNull DatabaseError error) {
+
+                       }
+                   });
+                    check = 0;
+                }else{
                     click(science);
                     categories.setText(text1);
                     reference.push().setValue(categories);
-
+                    check = 1;
                 }
-
-                //else{
-                    //unclick(science);
-                    //reference.removeValue();
-
-
-               // }
-                //isClicked=!isClicked;
             }
         });
 
         education.setOnClickListener(new View.OnClickListener() {
+            int check1=0;
             @Override
             public void onClick(View view) {
-                //if (isClicked==false){
+                if(check1 == 1){
+                    unclick(education);
+                    Query queryRef = reference.orderByChild("text").equalTo(text2);
+                    queryRef.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot snapshot, String previousChild) {
+                            snapshot.getRef().setValue(null);
+                        }
+
+                        @Override
+                        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    check1 = 0;
+                }else{
                     click(education);
-                categories.setText(text2);
-                reference.push().setValue(categories);
-
-
-                // }
-
-                //else{
-                   // unclick(education);
-                    //reference.removeValue();
-
-               // }
-               // isClicked=!isClicked;
-
+                    categories.setText(text2);
+                    reference.push().setValue(categories);
+                    check1 = 1;
+                }
             }
         });
         business.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +186,7 @@ public class Topics_Choice extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Topics_Choice.this,"signed up successfully",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Topics_Choice.this, notification.class);
+                Intent intent = new Intent(Topics_Choice.this, MainActivity.class);
                 intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
