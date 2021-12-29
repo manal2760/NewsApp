@@ -48,14 +48,13 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
       private categoryRVAdapter categoryRVAdapter;
       private NewsRVAdapter newsRVAdapter;
       DatabaseReference ref;
-
-      ArrayList<String> chosenCateg = new ArrayList<>();
-////////search
     private ArrayList<Articles> mExampleList;
 
     private RecyclerView mRecyclerView;
     private NewsRVAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+
+      ArrayList<String> chosenCateg = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,12 +98,6 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
                         //Toast.makeText(MainActivity.this,"settings", Toast.LENGTH_LONG).show();
                         Intent intent2 = new Intent(MainActivity.this, MainActivity.class);
                         startActivity(intent2);
-                        item.isCheckable();
-                        break;
-                    case R.id.search:
-                        Intent intent3 = new Intent(MainActivity.this, SearchActivity.class);
-                        startActivity(intent3);
-
                         break;
 
 
@@ -117,28 +110,29 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
         });
 
         mAuth= FirebaseAuth.getInstance();
-        ///////////////////search
-    /*    buildRecyclerView();
 
-        EditText editText = findViewById(R.id.edittextsearch);
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                filter(s.toString());
-            }
-        });*/
+//        buildRecyclerView();
+//
+//        EditText editText = findViewById(R.id.edittextsearch);
+//        editText.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                filter(s.toString());
+//            }
+//        });
 
     }
+
 
     @Override
     protected void onStart() {
@@ -249,24 +243,26 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
         getNews(category);
 
     }
-   /* private void filter(String text) {
-        ArrayList<Articles> filteredList = new ArrayList<>();
 
-        for (Articles item : mExampleList) {
-            if (item.getContent().toLowerCase().contains(text.toLowerCase())) {
-                filteredList.add(item);
-            }
-        }
 
-        mAdapter.filterList(filteredList);
-    }
-    private void buildRecyclerView() {
-        mRecyclerView = findViewById(R.id.idRVNews);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new NewsRVAdapter(articlesArrayList,this);
-
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
-    }*/
+//    private void filter(String text) {
+//        ArrayList<Articles> filteredList = new ArrayList<>();
+//
+//        for (Articles item : mExampleList) {
+//            if (item.getContent().toLowerCase().contains(text.toLowerCase())) {
+//                filteredList.add(item);
+//            }
+//        }
+//
+//        mAdapter.filterList(filteredList);
+//    }
+//    private void buildRecyclerView() {
+//        mRecyclerView = findViewById(R.id.idRVNews);
+//        mRecyclerView.setHasFixedSize(true);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        mAdapter = new NewsRVAdapter(articlesArrayList,this);
+//
+//        mRecyclerView.setLayoutManager(mLayoutManager);
+//        mRecyclerView.setAdapter(mAdapter);
+//    }
 }

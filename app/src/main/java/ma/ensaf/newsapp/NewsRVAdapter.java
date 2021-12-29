@@ -121,4 +121,9 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
         notifyDataSetChanged();
     }
 
+//    public void filterList(ArrayList<Articles> filteredList) {
+//        articlesArrayList = filteredList;
+//        notifyDataSetChanged();
+//    }
+
 }
