@@ -91,7 +91,6 @@
         android:elevation="2dp"
         app:itemIconTint="@drawable/item_color"
         app:itemTextColor="@drawable/item_color"
-        app:labelVisibilityMode="unlabeled"
         app:menu="@menu/menu_items" />
 
 </RelativeLayout>
