@@ -40,7 +40,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity implements categoryRVAdapter.CategoryClickInterface {
       //912a86cdf5b04b28a8b30878886c422b
       FirebaseAuth mAuth;
-      Button logout;
       BottomNavigationView bottomBar;
       private RecyclerView newsRV,categoryRV;
       private ProgressBar loadingPB;
