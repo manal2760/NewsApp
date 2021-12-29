@@ -5,67 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#221F1F"
-    tools:context=".MainActivity">
+    tools:context=".SearchActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/idToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="15dp"
-                android:layout_marginRight="15dp"
-                android:gravity="center"
-                android:padding="4dp"
-                android:text="News App"
-                android:textAlignment="center"
-                android:textColor="#cc3f18"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                />
-
-            <EditText
-                android:id="@+id/edittextsearch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:textColor="@color/white"
-                android:hint="search"
-                android:textColorHint="@color/white"
-                />
-
-
-
-        </RelativeLayout>
-
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="Explorer"
+            android:textAlignment="center"
+            android:textColor="#cc3f18"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/edittextsearch"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="search"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/textView1"
+            android:background="@drawable/edit_text_bg"
+            android:textColor="@color/white" />
+    </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idRVCategories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idToolbar"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/categories_rv_items" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idRVNews"
+        android:id="@+id/idSearchNews"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/idRVCategories"
+        android:layout_below="@id/idToolbar"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -92,7 +77,7 @@
         app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@drawable/item_color"
         app:itemTextColor="@drawable/item_color"
-        app:labelVisibilityMode="unlabeled"
+
         app:menu="@menu/menu_items" />
 
 </RelativeLayout>
