@@ -32,7 +32,7 @@ public class SearchActivity extends AppCompatActivity {
     EditText searchKeyword;
     private RecyclerView newsRV,categoryRV;
     private ProgressBar loadingPB;
-    private ArrayList<Articles> articlesArrayList;
+    private ArrayList<Articles> SearchArrayList;
     private ArrayList<CategoryRVModal> categoryRVModalArrayList;
     private categoryRVAdapter categoryRVAdapter;
     private NewsRVAdapter newsRVAdapter;
@@ -46,10 +46,11 @@ public class SearchActivity extends AppCompatActivity {
         searchKeyword=findViewById(R.id.edittextsearch);
         newsRV= findViewById(R.id.idSearchNews);
         loadingPB=findViewById(R.id.idPBLoading);
-        articlesArrayList= new ArrayList<>();
+        SearchArrayList= new ArrayList<>();
         categoryRVModalArrayList= new ArrayList<>();
-        newsRVAdapter= new NewsRVAdapter(articlesArrayList,this);
-        categoryRVAdapter= new categoryRVAdapter(categoryRVModalArrayList,this,this::onCategoryClick);
+        newsRVAdapter= new NewsRVAdapter(SearchArrayList,this);
+       // categoryRVAdapter = new categoryRVAdapter(categoryRVModalArrayList,this,this::)
+      //  categoryRVAdapter= new categoryRVAdapter(categoryRVModalArrayList,this,this::onCategoryClick);
         newsRV.setLayoutManager(new LinearLayoutManager(this));
         newsRV.setAdapter(newsRVAdapter);
         categoryRV.setAdapter(categoryRVAdapter);
@@ -110,7 +111,7 @@ public class SearchActivity extends AppCompatActivity {
     private void getNews(String category)
     {
         loadingPB.setVisibility(View.VISIBLE);
-        articlesArrayList.clear();
+        SearchArrayList.clear();
        // String categoryUrl="https://newsapi.org/v2/top-headlines?country=ma&category="+category+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
         String url="https://newsapi.org/v2/everything?q="+ searchKeyword+"&apiKey=API_KEY";
         String Base_url="https://newsapi.org/";
@@ -138,7 +139,7 @@ public class SearchActivity extends AppCompatActivity {
                 ArrayList<Articles> articles= newsModal.getArticles();
                 for(int i=0;i<articles.size();i++)
                 {
-                    articlesArrayList.add(new Articles(articles.get(i).getTitle(),articles.get(i).getDescription(),articles.get(i).getUrlToImage(),articles.get(i).getUrl(),articles.get(i).getContent()));
+                    SearchArrayList.add(new Articles(articles.get(i).getTitle(),articles.get(i).getDescription(),articles.get(i).getUrlToImage(),articles.get(i).getUrl(),articles.get(i).getContent()));
 
                 }
 
