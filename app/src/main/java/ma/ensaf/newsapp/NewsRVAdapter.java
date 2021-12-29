@@ -65,10 +65,10 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
             }
         });
         holder.bookmarkbutton.setOnClickListener(new View.OnClickListener() {
-           // int check = 1;
+            int check = 1;
             @Override
             public void onClick(View view) {
-            //    if (check == 1) {
+                   if (check == 1) {
                     Toast.makeText(context, "article saved", Toast.LENGTH_SHORT).show();
                     holder.bookmarkbutton.setBackgroundResource(R.drawable.ic_baseline_bookmark_24);
                     FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -81,12 +81,12 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
                     fav.setUrl(articles.getUrl());
                     fav.setContent(articles.getContent());
                     holder.reference.push().setValue(fav);
-                  //  check=0;
-              //  }
-               /* else{
+                    check=0;
+                }
+                else{
                     holder.bookmarkbutton.setBackgroundResource(R.drawable.ic_baseline_bookmark_border_24);
                     check=1;
-                }*/
+                }
             }
         });
 
