@@ -113,7 +113,7 @@ public class SearchActivity extends AppCompatActivity {
         loadingPB.setVisibility(View.VISIBLE);
         SearchArrayList.clear();
        // String categoryUrl="https://newsapi.org/v2/top-headlines?country=ma&category="+category+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
-        String url="https://newsapi.org/v2/everything?q="+ searchKeyword+"&apiKey=API_KEY";
+        String url="https://newsapi.org/v2/everything?q="+ searchKeyword+"&apiKey=apiKey=912a86cdf5b04b28a8b30878886c422b";
         String Base_url="https://newsapi.org/";
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl(Base_url)
