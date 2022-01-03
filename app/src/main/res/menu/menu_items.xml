@@ -10,7 +10,7 @@
 
     <item android:id="@+id/bookmark"
         android:title="bookmark"
-        android:icon="@drawable/ic_baseline_bookmarks_24"/>
+        android:icon="@drawable/ic_baseline_bookmark_24"/>
 
     <item android:id="@+id/settings"
         android:title="settings"
