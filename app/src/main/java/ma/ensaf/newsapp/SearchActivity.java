@@ -47,14 +47,14 @@ public class SearchActivity extends AppCompatActivity {
         newsRV= findViewById(R.id.idSearchNews);
         loadingPB=findViewById(R.id.idPBLoading);
         SearchArrayList= new ArrayList<>();
-        categoryRVModalArrayList= new ArrayList<>();
+        //categoryRVModalArrayList= new ArrayList<>();
         newsRVAdapter= new NewsRVAdapter(SearchArrayList,this);
-       // categoryRVAdapter = new categoryRVAdapter(categoryRVModalArrayList,this,this::)
-      //  categoryRVAdapter= new categoryRVAdapter(categoryRVModalArrayList,this,this::onCategoryClick);
+        // categoryRVAdapter = new categoryRVAdapter(categoryRVModalArrayList,this,this::)
+        //  categoryRVAdapter= new categoryRVAdapter(categoryRVModalArrayList,this,this::onCategoryClick);
         newsRV.setLayoutManager(new LinearLayoutManager(this));
         newsRV.setAdapter(newsRVAdapter);
-        categoryRV.setAdapter(categoryRVAdapter);
-       // getCategories();
+        //categoryRV.setAdapter(categoryRVAdapter);
+        // getCategories();
         getNews("All");
         newsRVAdapter.notifyDataSetChanged();
         bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);
@@ -112,8 +112,8 @@ public class SearchActivity extends AppCompatActivity {
     {
         loadingPB.setVisibility(View.VISIBLE);
         SearchArrayList.clear();
-       // String categoryUrl="https://newsapi.org/v2/top-headlines?country=ma&category="+category+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
-        String url="https://newsapi.org/v2/everything?q="+ searchKeyword+"&apiKey=API_KEY";
+        // String categoryUrl="https://newsapi.org/v2/top-headlines?country=ma&category="+category+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
+        String url="https://newsapi.org/v2/everything?q="+searchKeyword+"&apiKey=apiKey=912a86cdf5b04b28a8b30878886c422b";
         String Base_url="https://newsapi.org/";
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl(Base_url)
