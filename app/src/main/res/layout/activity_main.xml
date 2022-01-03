@@ -32,20 +32,6 @@
                 android:textSize="20sp"
                 />
 
-            <EditText
-                android:id="@+id/edittextsearch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:hint="search"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
-
-
-
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
@@ -88,6 +74,7 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/menu_pill"
         android:elevation="2dp"
+        app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@drawable/item_color"
         app:itemTextColor="@drawable/item_color"
         app:menu="@menu/menu_items" />
