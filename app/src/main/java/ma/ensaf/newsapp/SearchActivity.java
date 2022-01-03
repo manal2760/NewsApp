@@ -2,6 +2,7 @@ package ma.ensaf.newsapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,17 +39,19 @@ public class SearchActivity extends AppCompatActivity {
     private categoryRVAdapter categoryRVAdapter;
     private NewsRVAdapter newsRVAdapter;
     DatabaseReference ref;
-    Button buttonsearch;
+    private SearchView keyword;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        buttonsearch=findViewById(R.id.buttonsearch);
+
         newsRV= findViewById(R.id.idSearchNews);
         loadingPB=findViewById(R.id.idPBLoading);
         SearchArrayList= new ArrayList<>();
+        keyword= findViewById(R.id.myKeyword);
         categoryRVModalArrayList= new ArrayList<>();
         newsRVAdapter= new NewsRVAdapter(SearchArrayList,this);
        // categoryRVAdapter = new categoryRVAdapter(categoryRVModalArrayList,this,this::)
@@ -58,8 +61,23 @@ public class SearchActivity extends AppCompatActivity {
         //categoryRV.setAdapter(categoryRVAdapter);
        // getCategories();
 
-        getNews("All");
         newsRVAdapter.notifyDataSetChanged();
+
+        //String kw= keyword.getQuery().toString();
+        keyword.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                getNews("All");
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+
 
       /*  bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);
         bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -102,6 +120,7 @@ public class SearchActivity extends AppCompatActivity {
             }
         });*/
         mAuth= FirebaseAuth.getInstance();
+
     }
     @Override
     protected void onStart() {
@@ -116,18 +135,9 @@ public class SearchActivity extends AppCompatActivity {
     {
         loadingPB.setVisibility(View.VISIBLE);
         SearchArrayList.clear();
-
-
-        buttonsearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                searchKeyword=findViewById(R.id.edittextsearch);
-
-            }
-        });
        // String categoryUrl="https://newsapi.org/v2/top-headlines?country=ma&category="+category+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
-        String url1="https://newsapi.org/v2/top-headlines?country=ma&q="+searchKeyword+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
-        String url="https://newsapi.org/v2/top-headlines?country=ma&q=covid&apiKey=912a86cdf5b04b28a8b30878886c422b";
+        String query="https://newsapi.org/v2/top-headlines?country=ma&q="+keyword.getQuery().toString()+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
+        //String url="https://newsapi.org/v2/top-headlines?country=ma&q=covid&apiKey=912a86cdf5b04b28a8b30878886c422b";
         String Base_url="https://newsapi.org/";
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl(Base_url)
@@ -135,16 +145,16 @@ public class SearchActivity extends AppCompatActivity {
                 .build();
         RetrofitApi retrofitApi= retrofit.create(RetrofitApi.class);
         Call<NewsModal> call;
-        call=retrofitApi.getAllNews(url);
-        if(category.equals("All"))
+        call=retrofitApi.getAllNews(query);
+       /* if(category.equals("All"))
         {
-            call=retrofitApi.getAllNews(url);
+            call=retrofitApi.getAllNews(query);
         }
         else
         {
-            call=retrofitApi.getAllNews(url1);
+            call=retrofitApi.getAllNews(query);
            // call= retrofitApi.getNewsByCategory(categoryUrl);
-        }
+        }*/
 
         call.enqueue(new Callback<NewsModal>() {
             @Override

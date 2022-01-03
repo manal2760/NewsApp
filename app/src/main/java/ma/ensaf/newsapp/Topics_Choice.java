@@ -186,7 +186,7 @@ public class Topics_Choice extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Topics_Choice.this,"signed up successfully",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Topics_Choice.this, MainActivity.class);
+                Intent intent = new Intent(Topics_Choice.this, notifications.class);
                 intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }

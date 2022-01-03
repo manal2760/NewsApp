@@ -109,11 +109,7 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
                         startActivity(intent2);
                         break;
 
-                    case R.id.search:
-                        Intent intent3 = new Intent(MainActivity.this, SearchActivity.class);
-                        startActivity(intent3);
-                        item.isCheckable();
-                        break;
+
 
 
                     default:
