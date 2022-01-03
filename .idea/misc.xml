@@ -6,6 +6,10 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/button_bg.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.2111111111111111" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_bookmark_border_24.xml" value="0.2111111111111111" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_bookmarks_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_library_books_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_nights_stay_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/menu_pill.xml" value="0.2111111111111111" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/onclick_pill_button.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/pill_button.xml" value="0.2203125" />
@@ -15,7 +19,7 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_news_details.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_notifications.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_notifications.xml" value="0.25" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_search.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_settings.xml" value="0.25" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_topics_choice.xml" value="0.22" />
