@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
         newsRV= findViewById(R.id.idRVNews);
         categoryRV=findViewById(R.id.idRVCategories);
         loadingPB=findViewById(R.id.idPBLoading);
-        keyword=findViewById(R.id.edittextsearch);
+       // keyword=findViewById(R.id.edittextsearch);
         articlesArrayList= new ArrayList<>();
         categoryRVModalArrayList= new ArrayList<>();
         newsRVAdapter= new NewsRVAdapter(articlesArrayList,this);
