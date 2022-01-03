@@ -125,8 +125,9 @@ public class SearchActivity extends AppCompatActivity {
 
             }
         });
+
        // String categoryUrl="https://newsapi.org/v2/top-headlines?country=ma&category="+category+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
-        String url1="https://newsapi.org/v2/top-headlines?country=ma&q="+searchKeyword+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
+        String url1="https://newsapi.org/v2/top-headlines?country=ma&q="+searchKeyword.toString()+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
         String url="https://newsapi.org/v2/top-headlines?country=ma&q=covid&apiKey=912a86cdf5b04b28a8b30878886c422b";
         String Base_url="https://newsapi.org/";
         Retrofit retrofit= new Retrofit.Builder()
