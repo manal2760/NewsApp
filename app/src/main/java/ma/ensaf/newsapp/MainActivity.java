@@ -110,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
                         break;
 
 
+
+
                     default:
                         Toast.makeText(MainActivity.this, "message par défaut" , Toast.LENGTH_LONG).show();
 
