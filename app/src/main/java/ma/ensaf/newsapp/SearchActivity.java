@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -37,13 +38,14 @@ public class SearchActivity extends AppCompatActivity {
     private categoryRVAdapter categoryRVAdapter;
     private NewsRVAdapter newsRVAdapter;
     DatabaseReference ref;
+    Button buttonsearch;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        searchKeyword=findViewById(R.id.edittextsearch);
+        buttonsearch=findViewById(R.id.buttonsearch);
         newsRV= findViewById(R.id.idSearchNews);
         loadingPB=findViewById(R.id.idPBLoading);
         SearchArrayList= new ArrayList<>();
@@ -53,11 +55,13 @@ public class SearchActivity extends AppCompatActivity {
       //  categoryRVAdapter= new categoryRVAdapter(categoryRVModalArrayList,this,this::onCategoryClick);
         newsRV.setLayoutManager(new LinearLayoutManager(this));
         newsRV.setAdapter(newsRVAdapter);
-        categoryRV.setAdapter(categoryRVAdapter);
+        //categoryRV.setAdapter(categoryRVAdapter);
        // getCategories();
+
         getNews("All");
         newsRVAdapter.notifyDataSetChanged();
-        bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);
+
+      /*  bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);
         bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -96,7 +100,7 @@ public class SearchActivity extends AppCompatActivity {
                 }
                 return true;
             }
-        });
+        });*/
         mAuth= FirebaseAuth.getInstance();
     }
     @Override
@@ -112,8 +116,18 @@ public class SearchActivity extends AppCompatActivity {
     {
         loadingPB.setVisibility(View.VISIBLE);
         SearchArrayList.clear();
+
+
+        buttonsearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchKeyword=findViewById(R.id.edittextsearch);
+
+            }
+        });
        // String categoryUrl="https://newsapi.org/v2/top-headlines?country=ma&category="+category+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
-        String url="https://newsapi.org/v2/everything?q="+ searchKeyword+"&apiKey=apiKey=912a86cdf5b04b28a8b30878886c422b";
+        String url1="https://newsapi.org/v2/top-headlines?country=ma&q="+searchKeyword+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
+        String url="https://newsapi.org/v2/top-headlines?country=ma&q=covid&apiKey=912a86cdf5b04b28a8b30878886c422b";
         String Base_url="https://newsapi.org/";
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl(Base_url)
@@ -122,14 +136,15 @@ public class SearchActivity extends AppCompatActivity {
         RetrofitApi retrofitApi= retrofit.create(RetrofitApi.class);
         Call<NewsModal> call;
         call=retrofitApi.getAllNews(url);
-      /*  if(category.equals("All"))
+        if(category.equals("All"))
         {
             call=retrofitApi.getAllNews(url);
         }
         else
         {
-            call= retrofitApi.getNewsByCategory(categoryUrl);
-        }*/
+            call=retrofitApi.getAllNews(url1);
+           // call= retrofitApi.getNewsByCategory(categoryUrl);
+        }
 
         call.enqueue(new Callback<NewsModal>() {
             @Override
