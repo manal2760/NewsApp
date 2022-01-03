@@ -29,19 +29,26 @@
             android:textColor="#cc3f18"
             android:textSize="20sp"
             android:textStyle="bold" />
+
         <EditText
             android:id="@+id/edittextsearch"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_below="@+id/textView1"
             android:layout_marginStart="3dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:text="search"
-            android:paddingLeft="10dp"
-            android:layout_below="@+id/textView1"
             android:background="@drawable/edit_text_bg"
+            android:paddingLeft="10dp"
+            android:text="search"
             android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/buttonsearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
     </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 

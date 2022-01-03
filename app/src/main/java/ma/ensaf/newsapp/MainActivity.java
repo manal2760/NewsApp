@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
     private RecyclerView.LayoutManager mLayoutManager;
 
       ArrayList<String> chosenCateg = new ArrayList<>();
+      EditText keyword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
         newsRV= findViewById(R.id.idRVNews);
         categoryRV=findViewById(R.id.idRVCategories);
         loadingPB=findViewById(R.id.idPBLoading);
+        keyword=findViewById(R.id.edittextsearch);
         articlesArrayList= new ArrayList<>();
         categoryRVModalArrayList= new ArrayList<>();
         newsRVAdapter= new NewsRVAdapter(articlesArrayList,this);
@@ -84,6 +86,13 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
                         //Toast.makeText(MainActivity.this,"home", Toast.LENGTH_LONG).show();
                          Intent intent = new Intent(MainActivity.this, bookmarkActivity.class);
                          startActivity(intent);
+
+
+                        break;
+                    case R.id.search:
+                        //Toast.makeText(MainActivity.this,"home", Toast.LENGTH_LONG).show();
+                        Intent intent3 = new Intent(MainActivity.this, SearchActivity.class);
+                        startActivity(intent3);
 
 
                         break;
@@ -128,9 +137,7 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
 //
 //            @Override
 //            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//
 //            }
-//
 //            @Override
 //            public void afterTextChanged(Editable s) {
 //                filter(s.toString());
@@ -138,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
 //        });
 
     }
-
 
     @Override
     protected void onStart() {
@@ -202,6 +208,7 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
     {
         loadingPB.setVisibility(View.VISIBLE);
         articlesArrayList.clear();
+     // String url="https://newsapi.org/v2/top-headlines?country=ma&q="+keyword+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
         String categoryUrl="https://newsapi.org/v2/top-headlines?country=ma&category="+category+"&apiKey=912a86cdf5b04b28a8b30878886c422b";
         String url="https://newsapi.org/v2/top-headlines?country=ma&exludeDomains=stackoverflow.com&sortBy=publishedAt&language=fr&apiKey=912a86cdf5b04b28a8b30878886c422b";
         String Base_url="https://newsapi.org/";
