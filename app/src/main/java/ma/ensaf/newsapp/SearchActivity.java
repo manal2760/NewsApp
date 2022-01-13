@@ -79,7 +79,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
 
-      /*  bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);
+        bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);
         bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -118,7 +118,7 @@ public class SearchActivity extends AppCompatActivity {
                 }
                 return true;
             }
-        });*/
+        });
         mAuth= FirebaseAuth.getInstance();
 
     }

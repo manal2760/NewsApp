@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -30,6 +32,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myAlarm();
         newsRV= findViewById(R.id.idRVNews);
         categoryRV=findViewById(R.id.idRVCategories);
         loadingPB=findViewById(R.id.idPBLoading);
@@ -254,24 +259,25 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
     }
 
 
-//    private void filter(String text) {
-//        ArrayList<Articles> filteredList = new ArrayList<>();
-//
-//        for (Articles item : mExampleList) {
-//            if (item.getContent().toLowerCase().contains(text.toLowerCase())) {
-//                filteredList.add(item);
-//            }
-//        }
-//
-//        mAdapter.filterList(filteredList);
-//    }
-//    private void buildRecyclerView() {
-//        mRecyclerView = findViewById(R.id.idRVNews);
-//        mRecyclerView.setHasFixedSize(true);
-//        mLayoutManager = new LinearLayoutManager(this);
-//        mAdapter = new NewsRVAdapter(articlesArrayList,this);
-//
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//        mRecyclerView.setAdapter(mAdapter);
-//    }
+public void myAlarm() {
+
+    Calendar calendar = Calendar.getInstance();
+
+    calendar.set(Calendar.HOUR_OF_DAY, 17);
+    calendar.set(Calendar.MINUTE, 16);
+    calendar.set(Calendar.SECOND, 0);
+
+    if (calendar.getTime().compareTo(new Date()) < 0)
+        calendar.add(Calendar.DAY_OF_MONTH, 1);
+
+    Intent intent = new Intent(getApplicationContext(), ReminderBroadcast.class);
+    PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+    if (alarmManager != null) {
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+
+    }
+
+}
 }
