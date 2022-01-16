@@ -6,8 +6,6 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/button_bg.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.2111111111111111" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_bookmark_border_24.xml" value="0.2111111111111111" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_bookmarks_24.xml" value="0.2203125" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_library_books_24.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_nights_stay_24.xml" value="0.2203125" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.2203125" />
@@ -41,6 +39,7 @@
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_login.xml" value="0.1796875" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_news_details.xml" value="0.1796875" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_search.xml" value="0.1796875" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_settings.xml" value="0.1796875" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_topics_choice.xml" value="0.1796875" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/categories_rv_items.xml" value="0.22" />

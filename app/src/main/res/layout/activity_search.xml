@@ -41,8 +41,9 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/edit_text_bg"
             android:paddingLeft="10dp"
-            android:text="search"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            
+            />
 
 
     </RelativeLayout>

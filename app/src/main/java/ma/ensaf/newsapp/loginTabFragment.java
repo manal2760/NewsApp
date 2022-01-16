@@ -67,7 +67,7 @@ public class loginTabFragment extends Fragment
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful())
                         {
-                            Toast.makeText(getActivity(),"Logged in successfully",Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(getActivity(),"Logged in successfully",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getActivity(), MainActivity.class);
                             intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
