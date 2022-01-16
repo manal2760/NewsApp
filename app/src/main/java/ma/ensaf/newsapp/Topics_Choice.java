@@ -31,12 +31,16 @@ public class Topics_Choice extends AppCompatActivity {
     DatabaseReference reference;
     FirebaseAuth mAuth;
     Categories categories= new Categories();
+    ArrayList<String> ChosenCategories= new ArrayList<String>();
     Boolean isClicked=false;
     String text1="science";
     String text2="education";
     String text3="business";
     String text4="politics";
     String text5="sports";
+    String text6="technologie";
+    String text7="divertissement";
+    String text8="santé";
 
 
 
@@ -64,7 +68,8 @@ public class Topics_Choice extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                if(check == 1){
-                    unclick(science);
+                   unclick(science);
+                   ChosenCategories.remove(text1);
                    Query queryRef = reference.orderByChild("text").equalTo(text1);
                    queryRef.addChildEventListener(new ChildEventListener() {
                        @Override
@@ -95,6 +100,7 @@ public class Topics_Choice extends AppCompatActivity {
                     check = 0;
                 }else{
                     click(science);
+                    ChosenCategories.add(text1);
                     categories.setText(text1);
                     reference.push().setValue(categories);
                     check = 1;
@@ -108,6 +114,7 @@ public class Topics_Choice extends AppCompatActivity {
             public void onClick(View view) {
                 if(check1 == 1){
                     unclick(education);
+                    ChosenCategories.remove(text2);
                     Query queryRef = reference.orderByChild("text").equalTo(text2);
                     queryRef.addChildEventListener(new ChildEventListener() {
                         @Override
@@ -138,6 +145,7 @@ public class Topics_Choice extends AppCompatActivity {
                     check1 = 0;
                 }else{
                     click(education);
+                    ChosenCategories.add(text2);
                     categories.setText(text2);
                     reference.push().setValue(categories);
                     check1 = 1;
@@ -145,40 +153,268 @@ public class Topics_Choice extends AppCompatActivity {
             }
         });
         business.setOnClickListener(new View.OnClickListener() {
+            int check=0;
             @Override
             public void onClick(View view) {
+                if(check == 1){
+                    ChosenCategories.remove(text3);
+                    unclick(business);
+                    Query queryRef = reference.orderByChild("text").equalTo(text3);
+                    queryRef.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot snapshot, String previousChild) {
+                            snapshot.getRef().setValue(null);
+                        }
 
-                //if (isClicked==false){
+                        @Override
+                        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    check = 0;
+                }else{
                     click(business);
+                    ChosenCategories.add(text3);
                     categories.setText(text3);
                     reference.push().setValue(categories);
-                //}
-
-                //else{
-                    //unclick(business);
-                    //reference.removeValue();
-
-              //  }
-               // isClicked=!isClicked;
-
+                    check = 1;
+                }
             }
         });
         politique.setOnClickListener(new View.OnClickListener() {
+            int check=0;
             @Override
             public void onClick(View view) {
-               // if (isClicked==false){
+                if(check == 1){
+                    unclick(politique);
+                    ChosenCategories.remove(text4);
+                    Query queryRef = reference.orderByChild("text").equalTo(text4);
+                    queryRef.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot snapshot, String previousChild) {
+                            snapshot.getRef().setValue(null);
+                        }
+
+                        @Override
+                        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    check = 0;
+                }else{
                     click(politique);
+                    ChosenCategories.add(text4);
                     categories.setText(text4);
                     reference.push().setValue(categories);
-               // }
+                    check = 1;
+                }
+            }
+        });
 
-               // else{
-                  //  unclick(politique);
-                   // reference.removeValue();
+        sports.setOnClickListener(new View.OnClickListener() {
+            int check=0;
+            @Override
+            public void onClick(View view) {
+                if(check == 1){
+                    unclick(sports);
+                    ChosenCategories.remove(text5);
+                    Query queryRef = reference.orderByChild("text").equalTo(text5);
+                    queryRef.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot snapshot, String previousChild) {
+                            snapshot.getRef().setValue(null);
+                        }
 
-              //  }
-              //  isClicked=!isClicked;
+                        @Override
+                        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
+                        }
+
+                        @Override
+                        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    check = 0;
+                }else{
+                    click(sports);
+                    ChosenCategories.add(text5);
+                    categories.setText(text5);
+                    reference.push().setValue(categories);
+                    check = 1;
+                }
+            }
+        });
+        technologie.setOnClickListener(new View.OnClickListener() {
+            int check=0;
+            @Override
+            public void onClick(View view) {
+                if(check == 1){
+                    unclick(technologie);
+                    ChosenCategories.remove(text6);
+                    Query queryRef = reference.orderByChild("text").equalTo(text6);
+                    queryRef.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot snapshot, String previousChild) {
+                            snapshot.getRef().setValue(null);
+                        }
+
+                        @Override
+                        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    check = 0;
+                }else{
+                    click(technologie);
+                    ChosenCategories.add(text6);
+                    categories.setText(text6);
+                    reference.push().setValue(categories);
+                    check = 1;
+                }
+            }
+        });
+        divertissement.setOnClickListener(new View.OnClickListener() {
+            int check=0;
+            @Override
+            public void onClick(View view) {
+                if(check == 1){
+                    unclick(divertissement);
+                    ChosenCategories.remove(text7);
+                    Query queryRef = reference.orderByChild("text").equalTo(text7);
+                    queryRef.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot snapshot, String previousChild) {
+                            snapshot.getRef().setValue(null);
+                        }
+
+                        @Override
+                        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    check = 0;
+                }else{
+                    click(divertissement);
+                    ChosenCategories.add(text7);
+                    categories.setText(text7);
+                    reference.push().setValue(categories);
+                    check = 1;
+                }
+            }
+        });
+        santé.setOnClickListener(new View.OnClickListener() {
+            int check=0;
+            @Override
+            public void onClick(View view) {
+                if(check == 1){
+                    unclick(santé);
+                    ChosenCategories.remove(text8);
+                    Query queryRef = reference.orderByChild("text").equalTo(text8);
+                    queryRef.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot snapshot, String previousChild) {
+                            snapshot.getRef().setValue(null);
+                        }
+
+                        @Override
+                        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    check = 0;
+                }else{
+                    click(santé);
+                    ChosenCategories.add(text8);
+                    categories.setText(text8);
+                    reference.push().setValue(categories);
+                    check = 1;
+                }
             }
         });
 
@@ -188,25 +424,10 @@ public class Topics_Choice extends AppCompatActivity {
                 Toast.makeText(Topics_Choice.this,"signed up successfully",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Topics_Choice.this, notifications.class);
                 intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+                Bundle b=new Bundle();
+                b.putStringArrayList("key", ChosenCategories);
+                intent.putExtras(b);
                 startActivity(intent);
-            }
-        });
-        sports.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //if (isClicked==false){
-                    click(sports);
-                    categories.setText(text5);
-                    reference.push().setValue(categories);
-               // }
-
-                //else{
-                  //  unclick(sports);
-                    //reference.removeValue();
-
-                //}
-                //isClicked=!isClicked;
-
             }
         });
 
