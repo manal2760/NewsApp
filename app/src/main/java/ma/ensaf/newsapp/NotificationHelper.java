@@ -68,37 +68,37 @@ public class NotificationHelper {
         assert mNotificationManager != null;
         mNotificationManager.notify(0 /* Request Code */, mBuilder.build());
     }
-   /* private void getNews()
-    {
-
-        articlesArrayList.clear();
-        String url="https://newsapi.org/v2/top-headlines?country=ma&exludeDomains=stackoverflow.com&sortBy=publishedAt&language=fr&apiKey=912a86cdf5b04b28a8b30878886c422b";
-        String Base_url="https://newsapi.org/";
-        Retrofit retrofit= new Retrofit.Builder()
-                .baseUrl(Base_url)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        RetrofitApi retrofitApi= retrofit.create(RetrofitApi.class);
-        Call<NewsModal> call;
-
-            call=retrofitApi.getAllNews(url);
-
-
-        call.enqueue(new Callback<NewsModal>() {
-            @Override
-            public void onResponse(Call<NewsModal> call, Response<NewsModal> response) {
-                NewsModal newsModal= response.body();
-
-                ArrayList<Articles> articles= newsModal.getArticles();
-                title= articles.get(0).getTitle();
-
-            }
-
-            @Override
-            public void onFailure(Call<NewsModal> call, Throwable t) {
-
-            }
-        });
-
-    }*/
+//    private void getNews()
+//    {
+//
+//        articlesArrayList.clear();
+//        String url="https://newsapi.org/v2/top-headlines?country=ma&exludeDomains=stackoverflow.com&sortBy=publishedAt&language=fr&apiKey=912a86cdf5b04b28a8b30878886c422b";
+//        String Base_url="https://newsapi.org/";
+//        Retrofit retrofit= new Retrofit.Builder()
+//                .baseUrl(Base_url)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//        RetrofitApi retrofitApi= retrofit.create(RetrofitApi.class);
+//        Call<NewsModal> call;
+//
+//            call=retrofitApi.getAllNews(url);
+//
+//
+//        call.enqueue(new Callback<NewsModal>() {
+//            @Override
+//            public void onResponse(Call<NewsModal> call, Response<NewsModal> response) {
+//                NewsModal newsModal= response.body();
+//
+//                ArrayList<Articles> articles= newsModal.getArticles();
+//                title= articles.get(0).getTitle();
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<NewsModal> call, Throwable t) {
+//
+//            }
+//        });
+//
+//    }
 }
