@@ -76,7 +76,7 @@ private DatabaseReference rootRef;
                         rootRef.child("Users").child(currentUserId).child("categories").setValue("");
                         rootRef.child("Users").child(currentUserId).child("favoris").setValue("");
 
-                        Toast.makeText(getActivity(),"user created successfully",Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getActivity(),"user created successfully",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getActivity(), Topics_Choice.class);
                         startActivity(intent);
 
