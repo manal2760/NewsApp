@@ -79,7 +79,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
 
-      /*  bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);
+        bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);
         bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -105,9 +105,10 @@ public class SearchActivity extends AppCompatActivity {
 
                         break;
                     case R.id.search:
+                        item.isCheckable();
                         Intent intent3 = new Intent(SearchActivity.this, SearchActivity.class);
                         startActivity(intent3);
-                        item.isCheckable();
+
                         break;
 
 
@@ -118,7 +119,7 @@ public class SearchActivity extends AppCompatActivity {
                 }
                 return true;
             }
-        });*/
+        });
         mAuth= FirebaseAuth.getInstance();
 
     }

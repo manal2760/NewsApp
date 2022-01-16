@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -30,7 +32,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Calendar;
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,19 +52,19 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
       private categoryRVAdapter categoryRVAdapter;
       private NewsRVAdapter newsRVAdapter;
       DatabaseReference ref;
-      List<String> categories = new ArrayList<>();
     private ArrayList<Articles> mExampleList;
 
     private RecyclerView mRecyclerView;
     private NewsRVAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-      ArrayList<String> chosenCateg = new ArrayList<>();
+      ArrayList<String> chosenCateg = null;
       EditText keyword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myAlarm();
         newsRV= findViewById(R.id.idRVNews);
         categoryRV=findViewById(R.id.idRVCategories);
         loadingPB=findViewById(R.id.idPBLoading);
@@ -95,8 +98,6 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
                         //Toast.makeText(MainActivity.this,"home", Toast.LENGTH_LONG).show();
                         Intent intent3 = new Intent(MainActivity.this, SearchActivity.class);
                         startActivity(intent3);
-
-
                         break;
 
                     case R.id.settings:
@@ -110,9 +111,6 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
                         Intent intent2 = new Intent(MainActivity.this, MainActivity.class);
                         startActivity(intent2);
                         break;
-
-
-
 
                     default:
                         Toast.makeText(MainActivity.this, "message par défaut" , Toast.LENGTH_LONG).show();
@@ -154,45 +152,43 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
         }
     }
 
-
-
-
-
-
-
     private void getCategories()
     {
         //ref= FirebaseDatabase.getInstance().getReference().child("text");
- //       ref.addChildEventListener(new ChildEventListener() {
-//            @Override
-//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//            String value = snapshot.getValue(String.class);
-//            chosenCateg.add(value);
-//            }
-//
-//            @Override
-//            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//            }
-//
-//            @Override
-//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-//
-//            }
-//
-//            @Override
-//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+       /* chosenCateg = new ArrayList<>();
+        FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
+        String userId= currentUser.getUid();
+        ref= FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("categories");
+        ref.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            String value = snapshot.getValue(String.class);
+            chosenCateg.add(value);
+            }
 
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
 
         categoryRVModalArrayList.add(new CategoryRVModal("All","https://media.istockphoto.com/photos/abstract-digital-news-concept-picture-id1290904409?b=1&k=20&m=1290904409&s=170667a&w=0&h=6khncht98kwYG-l7bdeWfBNs_GGcG1pDqzLb6ZXhh7I="));
+
         categoryRVModalArrayList.add(new CategoryRVModal("Technology","https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"));
         categoryRVModalArrayList.add(new CategoryRVModal("Science","https://media.istockphoto.com/photos/vaccine-in-laboratory-flu-shot-and-covid19-vaccination-picture-id1289345741?b=1&k=20&m=1289345741&s=170667a&w=0&h=oG8iaDNP4rOLSgXWfeSziU3Vyu6KJS9Hn2ORohzSsRg="));
         categoryRVModalArrayList.add(new CategoryRVModal("Sports","https://media.istockphoto.com/photos/various-sport-equipments-on-grass-picture-id949190736?b=1&k=20&m=949190736&s=170667a&w=0&h=f3ofVqhbmg2XSVOa3dqmvGtHc4VLA_rtbboRGaC8eNo="));
@@ -258,24 +254,25 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
     }
 
 
-//    private void filter(String text) {
-//        ArrayList<Articles> filteredList = new ArrayList<>();
-//
-//        for (Articles item : mExampleList) {
-//            if (item.getContent().toLowerCase().contains(text.toLowerCase())) {
-//                filteredList.add(item);
-//            }
-//        }
-//
-//        mAdapter.filterList(filteredList);
-//    }
-//    private void buildRecyclerView() {
-//        mRecyclerView = findViewById(R.id.idRVNews);
-//        mRecyclerView.setHasFixedSize(true);
-//        mLayoutManager = new LinearLayoutManager(this);
-//        mAdapter = new NewsRVAdapter(articlesArrayList,this);
-//
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//        mRecyclerView.setAdapter(mAdapter);
-//    }
+public void myAlarm() {
+
+    Calendar calendar = Calendar.getInstance();
+
+    calendar.set(Calendar.HOUR_OF_DAY, 17);
+    calendar.set(Calendar.MINUTE, 16);
+    calendar.set(Calendar.SECOND, 0);
+
+    if (calendar.getTime().compareTo(new Date()) < 0)
+        calendar.add(Calendar.DAY_OF_MONTH, 1);
+
+    Intent intent = new Intent(getApplicationContext(), ReminderBroadcast.class);
+    PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+    if (alarmManager != null) {
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+
+    }
+
+}
 }

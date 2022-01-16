@@ -46,7 +46,7 @@ public class bookmarkActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){
                     case R.id.bookmark:
-
+                        item.isCheckable();
                         //Toast.makeText(MainActivity.this,"home", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(bookmarkActivity.this, bookmarkActivity.class);
                         startActivity(intent);
@@ -62,6 +62,11 @@ public class bookmarkActivity extends AppCompatActivity {
                         //Toast.makeText(MainActivity.this,"settings", Toast.LENGTH_LONG).show();
                         Intent intent2 = new Intent(bookmarkActivity.this, MainActivity.class);
                         startActivity(intent2);
+                        break;
+                    case R.id.search:
+                        //Toast.makeText(MainActivity.this,"home", Toast.LENGTH_LONG).show();
+                        Intent intent3 = new Intent(bookmarkActivity.this, SearchActivity.class);
+                        startActivity(intent3);
                         break;
 
 
