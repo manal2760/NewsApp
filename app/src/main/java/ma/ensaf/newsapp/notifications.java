@@ -13,11 +13,14 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class notifications extends AppCompatActivity {
     DatabaseReference reference;
     FirebaseAuth mAuth;
     AppCompatButton nextNotifOn;
     TextView nextNotifOff;
+    ArrayList<String> ChosenCategories= new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,8 @@ public class notifications extends AppCompatActivity {
         String userId= currentUser.getUid();
         reference= FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("notifications");
 
-
+        Bundle b=this.getIntent().getExtras();
+        ChosenCategories = b.getStringArrayList("key");
         nextNotifOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +42,9 @@ public class notifications extends AppCompatActivity {
                 reference.push().setValue(not);
                 Intent intent = new Intent(notifications.this, MainActivity.class);
                 intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+                Bundle b=new Bundle();
+                b.putStringArrayList("key1", ChosenCategories);
+                intent.putExtras(b);
                 startActivity(intent);
 
             }
@@ -51,6 +58,9 @@ public class notifications extends AppCompatActivity {
                 reference.push().setValue(not);
                 Intent intent = new Intent(notifications.this, MainActivity.class);
                 intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+                Bundle b=new Bundle();
+                b.putStringArrayList("key1", ChosenCategories);
+                intent.putExtras(b);
                 startActivity(intent);
             }
         });
