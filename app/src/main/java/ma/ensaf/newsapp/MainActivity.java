@@ -30,6 +30,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -51,7 +52,8 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
       private ArrayList<CategoryRVModal> categoryRVModalArrayList;
       private categoryRVAdapter categoryRVAdapter;
       private NewsRVAdapter newsRVAdapter;
-      ArrayList<String> ChosenCategories = new ArrayList<String>();
+
+      ArrayList<String> chosenCateg = new ArrayList<String>();
       DatabaseReference ref;
     private ArrayList<Articles> mExampleList;
     String text1="science";
@@ -67,13 +69,14 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
     private NewsRVAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-      ArrayList<String> chosenCateg = null;
+      //ArrayList<String> chosenCateg = null;
       EditText keyword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myAlarm();
+
         newsRV= findViewById(R.id.idRVNews);
         categoryRV=findViewById(R.id.idRVCategories);
         loadingPB=findViewById(R.id.idPBLoading);
@@ -163,68 +166,60 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
 
     private void getCategories()
     {
-//        //ref= FirebaseDatabase.getInstance().getReference().child("text");
-//        chosenCateg = new ArrayList<>();
+        //ref= FirebaseDatabase.getInstance().getReference().child("text");
+        //chosenCateg = new ArrayList<>();
 //        FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
 //        String userId= currentUser.getUid();
 //        ref= FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("categories");
-//        ref.addChildEventListener(new ChildEventListener() {
-//            @Override
-//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//            String value = snapshot.getValue(String.class);
-//            chosenCateg.add(value);
-//            }
-//
-//            @Override
-//            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//            }
-//
-//            @Override
-//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-//
-//            }
-//
-//            @Override
-//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+          ref = FirebaseDatabase.getInstance().getReference("categories");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                chosenCateg = new ArrayList<String>();
+                // Result will be holded Here
+
+                for (DataSnapshot dsp : dataSnapshot.getChildren()) {
+                    String key  = dsp.getKey();
+                    String category = dataSnapshot.child(key).child("text").getValue().toString();
+                    chosenCateg.add(category); //add result into array list
+                }
+
+                if (chosenCateg.contains(text1)){
+                    categoryRVModalArrayList.add(new CategoryRVModal("Science","https://media.istockphoto.com/photos/vaccine-in-laboratory-flu-shot-and-covid19-vaccination-picture-id1289345741?b=1&k=20&m=1289345741&s=170667a&w=0&h=oG8iaDNP4rOLSgXWfeSziU3Vyu6KJS9Hn2ORohzSsRg="));
+                }
+                if (chosenCateg.contains(text2)){
+                    categoryRVModalArrayList.add(new CategoryRVModal("Education","https://media.istockphoto.com/photos/television-streaming-multimedia-wall-concept-picture-id1287677376?b=1&k=20&m=1287677376&s=170667a&w=0&h=wvu0lKn4WbfHtKId83KzrHvGmBP7zn7ZwGEWmU99HWE="));
+                }
+                if (chosenCateg.contains(text3)){
+                    categoryRVModalArrayList.add(new CategoryRVModal("Business","https://media.istockphoto.com/photos/crisis-in-news-picture-id147036034?b=1&k=20&m=147036034&s=170667a&w=0&h=AwPgqLUXvbBfH_WI_rzpVc1VNfaFCPJmvDrgourmMbE="));
+                }
+                if (chosenCateg.contains(text4)){
+                    categoryRVModalArrayList.add(new CategoryRVModal("Politics","https://media.istockphoto.com/photos/television-streaming-multimedia-wall-concept-picture-id1287677376?b=1&k=20&m=1287677376&s=170667a&w=0&h=wvu0lKn4WbfHtKId83KzrHvGmBP7zn7ZwGEWmU99HWE="));
+                }
+                if (chosenCateg.contains(text5)){
+                    categoryRVModalArrayList.add(new CategoryRVModal("Sports","https://media.istockphoto.com/photos/various-sport-equipments-on-grass-picture-id949190736?b=1&k=20&m=949190736&s=170667a&w=0&h=f3ofVqhbmg2XSVOa3dqmvGtHc4VLA_rtbboRGaC8eNo="));
+                }
+                if (chosenCateg.contains(text6)){
+                    categoryRVModalArrayList.add(new CategoryRVModal("Technology","https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"));
+                }
+                if (chosenCateg.contains(text7)){
+                    categoryRVModalArrayList.add(new CategoryRVModal("Entertainment","https://media.istockphoto.com/photos/media-concept-smart-tv-picture-id540834826?b=1&k=20&m=540834826&s=170667a&w=0&h=1RMIxPcdb_Z9gwzG6yMxIMbaN9gMyJWdjUE9-CQ8Ooo="));
+                }
+                if (chosenCateg.contains(text8)){
+                    categoryRVModalArrayList.add(new CategoryRVModal("Health","https://media.istockphoto.com/photos/magazines-and-stethoscope-picture-id1296480132?b=1&k=20&m=1296480132&s=170667a&w=0&h=RXh-mJO4b4LiuKMqvew_l3qUA07JsM4UOOA6Ty7x9RU="));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
 //       Bundle b=this.getIntent().getExtras();
 //       ChosenCategories=b.getStringArrayList("key1");
-//        if (ChosenCategories.contains(text1)){
-//
-        categoryRVModalArrayList.add(new CategoryRVModal("All","https://media.istockphoto.com/photos/abstract-digital-news-concept-picture-id1290904409?b=1&k=20&m=1290904409&s=170667a&w=0&h=6khncht98kwYG-l7bdeWfBNs_GGcG1pDqzLb6ZXhh7I="));
 
-        categoryRVModalArrayList.add(new CategoryRVModal("Science","https://media.istockphoto.com/photos/vaccine-in-laboratory-flu-shot-and-covid19-vaccination-picture-id1289345741?b=1&k=20&m=1289345741&s=170667a&w=0&h=oG8iaDNP4rOLSgXWfeSziU3Vyu6KJS9Hn2ORohzSsRg="));
-//        }
-//        if (ChosenCategories.contains(text2)){
-            categoryRVModalArrayList.add(new CategoryRVModal("General","https://media.istockphoto.com/photos/television-streaming-multimedia-wall-concept-picture-id1287677376?b=1&k=20&m=1287677376&s=170667a&w=0&h=wvu0lKn4WbfHtKId83KzrHvGmBP7zn7ZwGEWmU99HWE="));
-//        }
-//        if (ChosenCategories.contains(text3)){
-            categoryRVModalArrayList.add(new CategoryRVModal("Business","https://media.istockphoto.com/photos/crisis-in-news-picture-id147036034?b=1&k=20&m=147036034&s=170667a&w=0&h=AwPgqLUXvbBfH_WI_rzpVc1VNfaFCPJmvDrgourmMbE="));
-//        }
-//        if (ChosenCategories.contains(text4)){
- //           categoryRVModalArrayList.add(new CategoryRVModal("General","https://media.istockphoto.com/photos/television-streaming-multimedia-wall-concept-picture-id1287677376?b=1&k=20&m=1287677376&s=170667a&w=0&h=wvu0lKn4WbfHtKId83KzrHvGmBP7zn7ZwGEWmU99HWE="));
-//        }
-//        if (ChosenCategories.contains(text5)){
-            categoryRVModalArrayList.add(new CategoryRVModal("Sports","https://media.istockphoto.com/photos/various-sport-equipments-on-grass-picture-id949190736?b=1&k=20&m=949190736&s=170667a&w=0&h=f3ofVqhbmg2XSVOa3dqmvGtHc4VLA_rtbboRGaC8eNo="));
-//        }
-//        if (ChosenCategories.contains(text6)){
-            categoryRVModalArrayList.add(new CategoryRVModal("Technology","https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"));
-//        }
-//        if (ChosenCategories.contains(text7)){
-            categoryRVModalArrayList.add(new CategoryRVModal("Entertainment","https://media.istockphoto.com/photos/media-concept-smart-tv-picture-id540834826?b=1&k=20&m=540834826&s=170667a&w=0&h=1RMIxPcdb_Z9gwzG6yMxIMbaN9gMyJWdjUE9-CQ8Ooo="));
-//        }
-//        if (ChosenCategories.contains(text8)){
-            categoryRVModalArrayList.add(new CategoryRVModal("Health","https://media.istockphoto.com/photos/magazines-and-stethoscope-picture-id1296480132?b=1&k=20&m=1296480132&s=170667a&w=0&h=RXh-mJO4b4LiuKMqvew_l3qUA07JsM4UOOA6Ty7x9RU="));
-//        }
-//
+        categoryRVModalArrayList.add(new CategoryRVModal("","https://media.istockphoto.com/photos/abstract-digital-news-concept-picture-id1290904409?b=1&k=20&m=1290904409&s=170667a&w=0&h=6khncht98kwYG-l7bdeWfBNs_GGcG1pDqzLb6ZXhh7I="));
+
         categoryRVAdapter.notifyDataSetChanged();
      }
 

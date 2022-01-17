@@ -1,8 +1,10 @@
 package ma.ensaf.newsapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +16,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -30,16 +39,26 @@ AppCompatButton signUp;
 FirebaseAuth mAuth;
 EditText mail, password;
 private DatabaseReference rootRef;
+FloatingActionButton google;
+GoogleSignInClient mGoogleSignInClient;
+private static int RC_SIGN_IN=100;
+private Button btn;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.signup_tab_fragment, container, false);
+
+
 
         mAuth=FirebaseAuth.getInstance();
         rootRef= FirebaseDatabase.getInstance().getReference();
         mail= (EditText)root.findViewById(R.id.email);
         password=(EditText)root.findViewById(R.id.pass);
         signUp= (AppCompatButton)root.findViewById(R.id.signup);
+        google=(FloatingActionButton)root.findViewById(R.id.fab_google);
+
+
 
         signUp.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -47,8 +66,19 @@ private DatabaseReference rootRef;
                createUser();
            }
        });
+
+
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         return root;
     }
+
+
 
     private void createUser()
     {
