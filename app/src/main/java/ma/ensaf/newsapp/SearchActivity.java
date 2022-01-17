@@ -105,7 +105,7 @@ public class SearchActivity extends AppCompatActivity {
 
                         break;
                     case R.id.search:
-                        item.isCheckable();
+
                         Intent intent3 = new Intent(SearchActivity.this, SearchActivity.class);
                         startActivity(intent3);
 

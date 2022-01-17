@@ -90,8 +90,10 @@
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login"
+        app:layout_constraintVertical_bias="0.825"
         app:tint="@null" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -104,7 +106,7 @@
         android:elevation="35dp"
         android:src="@drawable/ic_facebook"
         app:borderWidth="0dp"
-
+        app:layout_constraintVertical_bias="0.825"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/fab_google"
         app:layout_constraintTop_toBottomOf="@+id/login"
@@ -120,7 +122,7 @@
         android:src="@drawable/ic_twitter"
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-
+        app:layout_constraintVertical_bias="0.825"
         app:layout_constraintStart_toEndOf="@+id/fab_google"
 
         app:layout_constraintTop_toBottomOf="@+id/login"

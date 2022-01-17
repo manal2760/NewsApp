@@ -1,6 +1,7 @@
 package ma.ensaf.newsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,6 +20,7 @@ public class SettingsActivity extends AppCompatActivity {
     private RelativeLayout rel1;
     ImageView ProfilePicture;
     FirebaseAuth mAuth;
+    AppCompatButton modifierprofile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +28,9 @@ public class SettingsActivity extends AppCompatActivity {
         ProfilePicture= findViewById(R.id.profilepicture);
         lin1= (LinearLayout) findViewById(R.id.linId);
         rel1= (RelativeLayout) findViewById(R.id.relaId);
+        modifierprofile=findViewById(R.id.modifierprofile);
         mAuth= FirebaseAuth.getInstance();
-        ProfilePicture.setOnClickListener(new View.OnClickListener() {
+        modifierprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -61,4 +64,5 @@ public class SettingsActivity extends AppCompatActivity {
             }
         }
     }
+
 }
