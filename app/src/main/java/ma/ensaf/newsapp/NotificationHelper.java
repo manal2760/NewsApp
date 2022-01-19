@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NotificationHelper {
     private Context mContext;
-    private ArrayList<Articles> articlesArrayList =null;
+    private ArrayList<Articles> articlesArrayList;
     String title;
 
     private static final String NOTIFICATION_CHANNEL_ID = "10001";
@@ -32,7 +32,8 @@ public class NotificationHelper {
 
     void createNotification()
     {
-        //getNews();
+
+            getNews();
 
         Intent intent = new Intent(mContext , MainActivity.class);
 
@@ -46,7 +47,7 @@ public class NotificationHelper {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext, NOTIFICATION_CHANNEL_ID);
         mBuilder.setSmallIcon(R.drawable.icon);
         mBuilder.setContentTitle(title)
-                .setContentText("Content")
+                .setContentText(title)
                 .setAutoCancel(false)
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
                 .setContentIntent(resultPendingIntent);
@@ -68,37 +69,37 @@ public class NotificationHelper {
         assert mNotificationManager != null;
         mNotificationManager.notify(0 /* Request Code */, mBuilder.build());
     }
-//    private void getNews()
-//    {
-//
-//        articlesArrayList.clear();
-//        String url="https://newsapi.org/v2/top-headlines?country=ma&exludeDomains=stackoverflow.com&sortBy=publishedAt&language=fr&apiKey=912a86cdf5b04b28a8b30878886c422b";
-//        String Base_url="https://newsapi.org/";
-//        Retrofit retrofit= new Retrofit.Builder()
-//                .baseUrl(Base_url)
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//        RetrofitApi retrofitApi= retrofit.create(RetrofitApi.class);
-//        Call<NewsModal> call;
-//
-//            call=retrofitApi.getAllNews(url);
-//
-//
-//        call.enqueue(new Callback<NewsModal>() {
-//            @Override
-//            public void onResponse(Call<NewsModal> call, Response<NewsModal> response) {
-//                NewsModal newsModal= response.body();
-//
-//                ArrayList<Articles> articles= newsModal.getArticles();
-//                title= articles.get(0).getTitle();
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<NewsModal> call, Throwable t) {
-//
-//            }
-//        });
-//
-//    }
+    private void getNews()
+    {
+
+        articlesArrayList =new ArrayList<>();
+        String url="https://newsapi.org/v2/top-headlines?country=ma&exludeDomains=stackoverflow.com&sortBy=publishedAt&language=fr&apiKey=912a86cdf5b04b28a8b30878886c422b";
+        String Base_url="https://newsapi.org/";
+        Retrofit retrofit= new Retrofit.Builder()
+                .baseUrl(Base_url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        RetrofitApi retrofitApi= retrofit.create(RetrofitApi.class);
+        Call<NewsModal> call;
+
+            call=retrofitApi.getAllNews(url);
+
+
+        call.enqueue(new Callback<NewsModal>() {
+            @Override
+            public void onResponse(Call<NewsModal> call, Response<NewsModal> response) {
+                NewsModal newsModal= response.body();
+
+                ArrayList<Articles> articles= newsModal.getArticles();
+                title= articles.get(4).getTitle().toString();
+
+            }
+
+            @Override
+            public void onFailure(Call<NewsModal> call, Throwable t) {
+
+            }
+        });
+
+    }
 }

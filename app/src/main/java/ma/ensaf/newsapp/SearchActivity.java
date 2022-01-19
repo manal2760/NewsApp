@@ -80,6 +80,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
         bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);
+        bottomBar.setSelectedItemId(R.id.search);
         bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

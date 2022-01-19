@@ -2,6 +2,7 @@ package ma.ensaf.newsapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -57,6 +62,39 @@ public class FavsRVAdapter extends RecyclerView.Adapter<FavsRVAdapter.ViewHolder
 
             }
         });
+        holder.removebookmarkbutton.setOnClickListener(new View.OnClickListener() {
+            int check = 0;
+            @Override
+            public void onClick(View view) {
+                if (check == 1) {
+                    holder.removebookmarkbutton.setBackgroundResource(R.drawable.ic_baseline_bookmark_24);
+                    Toast.makeText(context, "article removed", Toast.LENGTH_SHORT).show();
+                    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                    String userId = currentUser.getUid();
+                    holder.reference = FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("favoris");
+                    Query queryRef = holder.reference.orderByChild("title").equalTo(articles.getTitle());
+                    queryRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot appleSnapshot : dataSnapshot.getChildren()) {
+                                appleSnapshot.getRef().removeValue();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            // Log.e(TAG, "onCancelled", databaseError.toException());
+                        }
+                    });
+                    check=0;
+                }
+                else{
+                    holder.removebookmarkbutton.setBackgroundResource(R.drawable.ic_baseline_bookmark_border_24);
+
+                    check=1;
+                }
+            }
+        });
 
 
     }
@@ -71,6 +109,7 @@ public class FavsRVAdapter extends RecyclerView.Adapter<FavsRVAdapter.ViewHolder
 
         private TextView titleTV,subtitleTV;
         private ImageView newsIV;
+        private ImageButton removebookmarkbutton;
 
         DatabaseReference reference;
         FirebaseAuth mAuth;
@@ -81,6 +120,7 @@ public class FavsRVAdapter extends RecyclerView.Adapter<FavsRVAdapter.ViewHolder
             titleTV=itemView.findViewById(R.id.idTVNewsHeading);
             subtitleTV=itemView.findViewById(R.id.idTVSubTitle);
             newsIV=itemView.findViewById(R.id.idIVNews);
+            removebookmarkbutton=itemView.findViewById(R.id.RemoveBookmarkButton);
 
         }
     }

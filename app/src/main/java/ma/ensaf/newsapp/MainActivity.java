@@ -95,12 +95,14 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
 
 
         bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);
+        bottomBar.setSelectedItemId(R.id.home);
         bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){
                     case R.id.bookmark:
                         //Toast.makeText(MainActivity.this,"home", Toast.LENGTH_LONG).show();
+
                          Intent intent = new Intent(MainActivity.this, bookmarkActivity.class);
                          startActivity(intent);
 
@@ -114,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
 
                     case R.id.settings:
                         //Toast.makeText(MainActivity.this,"settings", Toast.LENGTH_LONG).show();
+
                          Intent intent1 = new Intent(MainActivity.this, SettingsActivity.class);
                           startActivity(intent1);
                         break;
@@ -282,8 +285,8 @@ public void myAlarm() {
 
     Calendar calendar = Calendar.getInstance();
 
-    calendar.set(Calendar.HOUR_OF_DAY, 16);
-    calendar.set(Calendar.MINUTE, 38);
+    calendar.set(Calendar.HOUR_OF_DAY, 14);
+    calendar.set(Calendar.MINUTE, 17);
     calendar.set(Calendar.SECOND, 0);
 
     if (calendar.getTime().compareTo(new Date()) < 0)

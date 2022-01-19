@@ -40,12 +40,18 @@ public class bookmarkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookmark);
+
         bottomBar = (BottomNavigationView) findViewById(R.id.bottomBar);
+        bottomBar.setSelectedItemId(R.id.bookmark);
         bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){
                     case R.id.bookmark:
+
+                            item.setChecked(true);
+
+
 
                         //Toast.makeText(MainActivity.this,"home", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(bookmarkActivity.this, bookmarkActivity.class);
@@ -59,11 +65,19 @@ public class bookmarkActivity extends AppCompatActivity {
                         break;
 
                     case R.id.home:
+
+                            item.setChecked(false);
                         //Toast.makeText(MainActivity.this,"settings", Toast.LENGTH_LONG).show();
                         Intent intent2 = new Intent(bookmarkActivity.this, MainActivity.class);
                         startActivity(intent2);
                         break;
                     case R.id.search:
+                        if(item.isChecked()){
+                            item.setChecked(false);
+                        }
+                        else{
+                            item.setChecked(true);
+                        }
                         //Toast.makeText(MainActivity.this,"home", Toast.LENGTH_LONG).show();
                         Intent intent3 = new Intent(bookmarkActivity.this, SearchActivity.class);
                         startActivity(intent3);

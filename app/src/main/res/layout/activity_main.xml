@@ -61,6 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:indeterminateTint="@color/orange"
         android:visibility="invisible"
         />
 
@@ -76,7 +77,6 @@
         android:elevation="2dp"
         app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@drawable/item_color"
-        app:itemTextColor="@drawable/item_color"
         app:menu="@menu/menu_items" />
 
 </RelativeLayout>
