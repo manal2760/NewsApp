@@ -168,10 +168,10 @@ public class MainActivity extends AppCompatActivity implements categoryRVAdapter
     {
         //ref= FirebaseDatabase.getInstance().getReference().child("text");
         //chosenCateg = new ArrayList<>();
-//        FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
-//        String userId= currentUser.getUid();
-//        ref= FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("categories");
-          ref = FirebaseDatabase.getInstance().getReference("categories");
+        FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
+        String userId= currentUser.getUid();
+        ref= FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("categories");
+        //  ref = FirebaseDatabase.getInstance().getReference("categories");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
