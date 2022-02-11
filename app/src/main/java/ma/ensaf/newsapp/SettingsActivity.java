@@ -17,7 +17,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingsActivity extends AppCompatActivity {
     private  LinearLayout lin1;
+    private  LinearLayout linpref;
     private RelativeLayout rel1;
+    private RelativeLayout aboutRel;
+    private RelativeLayout faq;
     ImageView ProfilePicture;
     FirebaseAuth mAuth;
     AppCompatButton modifierprofile;
@@ -27,9 +30,36 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         ProfilePicture= findViewById(R.id.profilepicture);
         lin1= (LinearLayout) findViewById(R.id.linId);
+        linpref= (LinearLayout) findViewById(R.id.linPref);
         rel1= (RelativeLayout) findViewById(R.id.relaId);
+        aboutRel=(RelativeLayout)findViewById(R.id.about);
+        faq=(RelativeLayout)findViewById(R.id.faq);
         modifierprofile=findViewById(R.id.modifierprofile);
         mAuth= FirebaseAuth.getInstance();
+        linpref.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingsActivity.this, modifCategActivity.class));
+                finish();
+
+            }
+        });
+
+        faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingsActivity.this, FaqActivity.class));
+                finish();
+
+            }
+        });
+        aboutRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingsActivity.this, aboutActivity.class));
+                finish();
+            }
+        });
         modifierprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -42,9 +42,12 @@
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/pill_button.xml" value="0.1" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/settings_bg.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/vie_bg.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_about.xml" value="0.1796875" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_bookmark.xml" value="0.1796875" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_faq.xml" value="0.1796875" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_login.xml" value="0.1796875" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_modif_categ.xml" value="0.1796875" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_news_details.xml" value="0.1796875" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_settings.xml" value="0.1796875" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_topics_choice.xml" value="0.1796875" />

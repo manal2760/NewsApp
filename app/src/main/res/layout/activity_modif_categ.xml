@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#221F1F"
+    tools:context=".Topics_Choice">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#cc3f18"
+            android:text="Modifiez vos catégories preférées"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/science"
+            android:layout_width="73dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/pill_button"
+            android:text="Science"
+            android:textColor="#9faba3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/education"
+            android:layout_width="100dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/pill_button"
+            android:text="Education"
+            android:textColor="#9faba3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/art"
+            android:layout_width="50dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/pill_button"
+            android:text="Art"
+            android:textColor="#9faba3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="77dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/pill_button"
+            android:text="World"
+            android:textColor="#9faba3" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/business"
+            android:layout_width="105dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/pill_button"
+            android:text="Business"
+            android:textColor="#9faba3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/divertissement"
+            android:layout_width="136dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/pill_button"
+            android:text="Divertissement"
+            android:textColor="#9faba3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/santé"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/pill_button"
+            android:text="Santé"
+            android:textColor="#9faba3" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/politique"
+            android:layout_width="105dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/pill_button"
+            android:text="Politique"
+            android:textColor="#9faba3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sport"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/pill_button"
+            android:text="Sports"
+            android:textColor="#9faba3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tech"
+            android:layout_width="115dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/pill_button"
+            android:text="Technologie"
+            android:textColor="#9faba3" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/next_Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text="Enregistrer"
+        android:textColor="#9faba3"
+        android:background="@drawable/button_bg"/>
+
+</LinearLayout>

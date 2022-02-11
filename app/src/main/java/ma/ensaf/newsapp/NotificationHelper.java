@@ -51,6 +51,9 @@ public class NotificationHelper {
                 .setAutoCancel(false)
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
                 .setContentIntent(resultPendingIntent);
+                //.setStyle(NotificationCompat.BigPictureStyle()
+                  //      .bigPicture(R.drawable.fb));
+
 
         NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 
